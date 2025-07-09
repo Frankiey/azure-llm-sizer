@@ -1,0 +1,8 @@
+[
+  {
+    "sku": "Standard_NC6",
+    "gpu_model": "Tesla K80",
+    "gpus_per_vm": 1,
+    "vram_gb": 12
+  }
+]

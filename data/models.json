@@ -1,0 +1,9 @@
+[
+  {
+    "model_id": "gpt2",
+    "params_b": 1,
+    "layers": 12,
+    "hidden": 768,
+    "moe_active_ratio": 0
+  }
+]

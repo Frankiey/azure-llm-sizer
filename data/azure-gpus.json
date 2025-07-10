@@ -1,8 +1,6 @@
 [
-  {
-    "sku": "Standard_NC6",
-    "gpu_model": "Tesla K80",
-    "gpus_per_vm": 1,
-    "vram_gb": 12
-  }
+  { "sku": "Standard_NC6", "gpu_model": "Tesla K80", "gpus_per_vm": 1, "vram_gb": 12 },
+  { "sku": "Standard_NC24s_v3", "gpu_model": "V100", "gpus_per_vm": 4, "vram_gb": 16 },
+  { "sku": "Standard_ND40rs_v2", "gpu_model": "A100", "gpus_per_vm": 8, "vram_gb": 40 },
+  { "sku": "Standard_ND96amsr_A100_v4", "gpu_model": "A100", "gpus_per_vm": 8, "vram_gb": 80 }
 ]

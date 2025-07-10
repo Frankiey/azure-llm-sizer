@@ -14,11 +14,23 @@ interface ModelInfo {
 }
 
 const precisions: Precision[] = ['fp32', 'fp16', 'bf16', 'int8', 'int4'];
+const ctxOptions = [
+  1024,
+  2048,
+  4096,
+  8192,
+  16384,
+  32768,
+  65536,
+  131072,
+  262144,
+];
 
 function App() {
   const [modelId, setModelId] = useState<string>(models[0].model_id);
   const [precision, setPrecision] = useState<Precision>('fp16');
-  const [ctx, setCtx] = useState<number>(4096);
+  const [ctxIndex, setCtxIndex] = useState<number>(2);
+  const ctx = ctxOptions[ctxIndex];
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
 
   const handleCalc = () => {
@@ -66,15 +78,21 @@ function App() {
           </select>
         </label>
         <label>
-          Context length: {ctx}
+          Context length: {ctx / 1024}k
           <input
             type="range"
-            min="1"
-            max="256000"
+            min={0}
+            max={ctxOptions.length - 1}
             step="1"
-            value={ctx}
-            onChange={(e) => setCtx(Number(e.target.value))}
+            list="ctxTicks"
+            value={ctxIndex}
+            onChange={(e) => setCtxIndex(Number(e.target.value))}
           />
+          <datalist id="ctxTicks">
+            {ctxOptions.map((v, i) => (
+              <option key={i} value={i} label={`${v / 1024}k`} />
+            ))}
+          </datalist>
         </label>
         <button onClick={handleCalc}>Calculate</button>
       </div>
@@ -86,7 +104,12 @@ function App() {
           {result.sku ? (
             <>
               <p>GPUs required: {result.gpus} / {result.sku.gpus_per_vm} per VM</p>
-              <p>Recommended SKU: <a href={`https://azure.microsoft.com/en-us/pricing/details/virtual-machines/${result.sku.sku.toLowerCase()}`}>{result.sku.sku}</a></p>
+              <p>
+                Recommended SKU:
+                <a href={`https://azure.microsoft.com/en-us/pricing/details/virtual-machines/${result.sku.sku.toLowerCase()}`}>{result.sku.sku}</a>
+                {' '}({result.sku.gpu_model} {result.sku.vram_gb} GB)
+              </p>
+              <p>Memory per GPU: {(result.total_gb / result.gpus).toFixed(2)} GB</p>
               {(() => {
                 const cli = `az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`;
                 return (

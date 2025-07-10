@@ -5,10 +5,19 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .container {
   padding: 1rem;
   max-width: 700px;
   margin: 0 auto;
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #000;
 }
 
 
@@ -41,6 +50,10 @@ body {
   gap: 0.25rem;
 }
 
+.model-tile strong {
+  font-size: 0.9rem;
+}
+
 .model-tile:hover {
   border-color: #888;
 }
@@ -61,6 +74,22 @@ input, select, button {
 
 button {
   cursor: pointer;
+}
+
+.form input[type='range'] {
+  width: 100%;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #aaa;
+  padding: 0 0.25rem;
+}
+
+datalist option {
+  display: block;
 }
 
 .result {

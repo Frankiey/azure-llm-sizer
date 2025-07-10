@@ -39,20 +39,24 @@ function App() {
   return (
     <div className="container">
       <h1>Azure LLM Sizer</h1>
+      <div className="models">
+        {(models as ModelInfo[]).map((m) => {
+          const name = m.model_id.split('/').pop();
+          return (
+            <button
+              key={m.model_id}
+              className={
+                'model-tile' + (m.model_id === modelId ? ' active' : '')
+              }
+              onClick={() => setModelId(m.model_id)}
+            >
+              <strong>{name}</strong>
+              <span>{m.params_b}B</span>
+            </button>
+          );
+        })}
+      </div>
       <div className="form">
-        <label>
-          Model
-          <input
-            list="models"
-            value={modelId}
-            onChange={(e) => setModelId(e.target.value)}
-          />
-          <datalist id="models">
-            {(models as ModelInfo[]).map((m) => (
-              <option key={m.model_id} value={m.model_id} />
-            ))}
-          </datalist>
-        </label>
         <label>
           Precision
           <select value={precision} onChange={(e) => setPrecision(e.target.value as Precision)}>
@@ -83,7 +87,20 @@ function App() {
             <>
               <p>GPUs required: {result.gpus} / {result.sku.gpus_per_vm} per VM</p>
               <p>Recommended SKU: <a href={`https://azure.microsoft.com/en-us/pricing/details/virtual-machines/${result.sku.sku.toLowerCase()}`}>{result.sku.sku}</a></p>
-              <pre className="cli">az vm create --name llm --size {result.sku.sku} --image UbuntuLTS</pre>
+              {(() => {
+                const cli = `az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`;
+                return (
+                  <pre className="cli">
+                    <button
+                      className="copy-btn"
+                      onClick={() => navigator.clipboard.writeText(cli)}
+                    >
+                      copy
+                    </button>
+                    {cli}
+                  </pre>
+                );
+              })()}
             </>
           ) : (
             <p>No suitable SKU found</p>

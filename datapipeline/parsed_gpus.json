@@ -1,126 +1,147 @@
 [
   {
     "sku": "Standard_NC16as_T4_v3",
+    "family": "Standard NCASv3_T4 Family",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NC24ads_A100_v4",
+    "family": "StandardNCADSA100v4Family",
     "gpu_model": "A100",
     "gpus_per_vm": 1,
     "vram_gb": 40
   },
   {
     "sku": "Standard_NC40ads_H100_v5",
+    "family": "StandardNCadsH100v5Family",
     "gpu_model": "H100",
     "gpus_per_vm": 1,
     "vram_gb": 80
   },
   {
     "sku": "Standard_NC48ads_A100_v4",
+    "family": "StandardNCADSA100v4Family",
     "gpu_model": "A100",
     "gpus_per_vm": 2,
     "vram_gb": 40
   },
   {
     "sku": "Standard_NC4as_T4_v3",
+    "family": "Standard NCASv3_T4 Family",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NC64as_T4_v3",
+    "family": "Standard NCASv3_T4 Family",
     "gpu_model": "T4",
     "gpus_per_vm": 4,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NC80adis_H100_v5",
+    "family": "StandardNCadsH100v5Family",
     "gpu_model": "H100",
     "gpus_per_vm": 2,
     "vram_gb": 80
   },
   {
     "sku": "Standard_NC8as_T4_v3",
+    "family": "Standard NCASv3_T4 Family",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NC96ads_A100_v4",
+    "family": "StandardNCADSA100v4Family",
     "gpu_model": "A100",
     "gpus_per_vm": 4,
     "vram_gb": 40
   },
   {
     "sku": "Standard_ND96amsr_A100_v4",
+    "family": "standard NDAMSv4_A100Family",
     "gpu_model": "A100",
     "gpus_per_vm": 8,
     "vram_gb": 80
   },
   {
     "sku": "Standard_ND96isr_H100_v5",
+    "family": "standardNDSH100v5Family",
     "gpu_model": "H100",
     "gpus_per_vm": 8,
     "vram_gb": 80
   },
   {
     "sku": "Standard_NV12ads_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV16as_v4",
+    "family": "standardNVSv4Family",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NV18ads_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV32as_v4",
+    "family": "standardNVSv4Family",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NV36adms_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV36ads_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV4as_v4",
+    "family": "standardNVSv4Family",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
     "vram_gb": 16
   },
   {
     "sku": "Standard_NV6ads_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV72ads_A10_v5",
+    "family": "StandardNVADSA10v5Family",
     "gpu_model": "A10",
     "gpus_per_vm": 2,
     "vram_gb": 24
   },
   {
     "sku": "Standard_NV8as_v4",
+    "family": "standardNVSv4Family",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
     "vram_gb": 16

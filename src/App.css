@@ -1,120 +1,189 @@
+:root {
+  --primary: #0078D4;
+  --secondary: #F5F5F5;
+  --accent: #107C10;
+  --text: #323130;
+  --space: 1rem;
+}
+
 body {
-  font-family: sans-serif;
-  background: linear-gradient(180deg, #111, #222);
-  color: #eee;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--secondary);
+  color: var(--text);
   min-height: 100vh;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space);
+  color: var(--primary);
 }
 
 .container {
-  padding: 1rem;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: #111;
-  border: 1px solid #333;
-  border-radius: 8px;
-  box-shadow: 0 0 8px #000;
-}
-
-
-.form label {
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.form button {
-  margin-top: 0.5rem;
+  padding: var(--space);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
 }
 
 .models {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space);
 }
 
 .model-tile {
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 6px;
-  padding: 0.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: var(--space);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+}
+
+.model-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.model-tile.active {
+  outline: 2px solid var(--primary);
+}
+
+.form {
+  background: #fff;
+  padding: var(--space);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: var(--space);
+}
+
+label {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.model-tile strong {
-  font-size: 0.9rem;
-}
-
-.model-tile:hover {
-  border-color: #888;
-}
-
-.model-tile.active {
-  background-color: #333;
-  border-color: #6cf;
-}
-
-input, select, button {
-  margin-top: 0.25rem;
-  padding: 0.25rem;
-  background-color: #222;
-  color: #eee;
-  border: 1px solid #444;
-  border-radius: 4px;
+button, select, input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 button {
+  background: var(--primary);
+  color: #fff;
   cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
 }
 
-.form input[type='range'] {
-  width: 100%;
+button:hover {
+  transform: translateY(-2px);
 }
 
-datalist {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: #aaa;
-  padding: 0 0.25rem;
-}
-
-datalist option {
-  display: block;
+button:active,
+.model-tile.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 .result {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 6px;
+  background: #fff;
+  padding: var(--space);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.3s ease-out forwards;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress {
+  flex: 1;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
 }
 
 .cli {
-  background-color: #000;
-  padding: 0.5rem;
-  overflow: auto;
+  background: #000;
+  color: #0f0;
+  padding: var(--space);
+  border-radius: 6px;
   position: relative;
+  font-family: monospace;
+  overflow-x: auto;
 }
 
 .copy-btn {
   position: absolute;
   top: 4px;
   right: 4px;
-  background: #444;
+  background: var(--primary);
+  color: #fff;
   border: none;
-  color: #eee;
-  padding: 2px 6px;
-  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid var(--primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: calc(var(--space) * 2);
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 1000px;
+  }
 }

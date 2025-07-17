@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
-import type { EstimateFullInput, Precision } from './estimator';
+import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
 import { estimateWithSku } from './estimator';
 import './App.css';
 
@@ -32,20 +32,25 @@ function App() {
   const [ctxIndex, setCtxIndex] = useState<number>(2);
   const ctx = ctxOptions[ctxIndex];
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleCalc = () => {
     const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
     if (!model) return;
-    const input: EstimateFullInput = {
-      params_b: model.params_b,
-      layers: model.layers,
-      hidden: model.hidden,
-      ctx,
-      batch: 1,
-      precision,
-      skus: skus as any,
-    };
-    setResult(estimateWithSku(input));
+    setLoading(true);
+    setTimeout(() => {
+      const input: EstimateFullInput = {
+        params_b: model.params_b,
+        layers: model.layers,
+        hidden: model.hidden,
+        ctx,
+        batch: 1,
+        precision,
+        skus: skus as AzureGpuSku[],
+      };
+      setResult(estimateWithSku(input));
+      setLoading(false);
+    }, 200);
   };
 
   return (
@@ -94,13 +99,26 @@ function App() {
             ))}
           </datalist>
         </label>
-        <button onClick={handleCalc}>Calculate</button>
+        <button onClick={handleCalc} disabled={loading}>Calculate</button>
+        {loading && <div className="spinner" />}
       </div>
-      {result && (
+      {result && !loading && (
         <div className="result">
-          <p>Weights: {result.weights_gb.toFixed(2)} GB</p>
-          <p>KV cache: {result.kv_gb.toFixed(2)} GB</p>
-          <p>Total memory: {result.total_gb.toFixed(2)} GB</p>
+          <div className="metric">
+            <span role="img" aria-label="weights">📦</span>
+            <div className="progress"><span style={{ width: `${(result.weights_gb / result.total_gb) * 100}%` }} /></div>
+            <span>{result.weights_gb.toFixed(2)} GB</span>
+          </div>
+          <div className="metric">
+            <span role="img" aria-label="kv-cache">🔑</span>
+            <div className="progress"><span style={{ width: `${(result.kv_gb / result.total_gb) * 100}%` }} /></div>
+            <span>{result.kv_gb.toFixed(2)} GB</span>
+          </div>
+          <div className="metric">
+            <span role="img" aria-label="total">💾</span>
+            <div className="progress"><span style={{ width: '100%' }} /></div>
+            <span>{result.total_gb.toFixed(2)} GB</span>
+          </div>
           {result.sku ? (
             <>
               <p>GPUs required: {result.gpus} / {result.sku.gpus_per_vm} per VM</p>
@@ -109,7 +127,11 @@ function App() {
                 <a href={`https://azure.microsoft.com/en-us/pricing/details/virtual-machines/${result.sku.sku.toLowerCase()}`}>{result.sku.sku}</a>
                 {' '}({result.sku.gpu_model} {result.sku.vram_gb} GB)
               </p>
-              <p>Memory per GPU: {(result.total_gb / result.gpus).toFixed(2)} GB</p>
+              <div className="metric">
+                <span role="img" aria-label="per-gpu">🖥️</span>
+                <div className="progress"><span style={{ width: `${((result.total_gb / result.gpus) / result.sku.vram_gb) * 100}%` }} /></div>
+                <span>{(result.total_gb / result.gpus).toFixed(2)} / {result.sku.vram_gb} GB</span>
+              </div>
               {(() => {
                 const cli = `az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`;
                 return (

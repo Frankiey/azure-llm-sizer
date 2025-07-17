@@ -1,0 +1,3128 @@
+[
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "360448"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "16"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "110"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "False"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "16"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "32000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "503316480"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "503316480"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "48000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "737280000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "Standard NCASv3_T4 Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC16as_T4_v3",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC16as_T4_v3",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "65536"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "24"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "220"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "8"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "24"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "32000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "256000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "256000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "274877906944"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "30000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "1024000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "915527"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "915527"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "2"
+      }
+    ],
+    "family": "StandardNCADSA100v4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC24ads_A100_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC24ads_A100_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "131072"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "40"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "DiskControllerTypes",
+        "value": "SCSI"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "CacheDisk,NvmeDisk,ResourceDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "320"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "8"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "40"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "32000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "256000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "256000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "345744867328"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "100000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "3000000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "3662109"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "3662109"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "False"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "2"
+      }
+    ],
+    "family": "StandardNCadsH100v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC40ads_H100_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC40ads_H100_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "131072"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "48"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "440"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "48"
+      },
+      {
+        "name": "GPUs",
+        "value": "2"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "64000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "512000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "512000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "549755813888"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "60000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "2048000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "1831054"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "915527"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "4"
+      }
+    ],
+    "family": "StandardNCADSA100v4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC48ads_A100_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC48ads_A100_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "180224"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "4"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "28"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "8"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "False"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "4"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "4000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "62914560"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "62914560"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "48000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "737280000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "4"
+      }
+    ],
+    "family": "Standard NCASv3_T4 Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC4as_T4_v3",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC4as_T4_v3",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "2883584"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "64"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "440"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "False"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "64"
+      },
+      {
+        "name": "GPUs",
+        "value": "4"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "16320"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "251658240"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "251658240"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "48000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "737280000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "Standard NCASv3_T4 Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC64as_T4_v3",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC64as_T4_v3",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "262144"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "80"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "DiskControllerTypes",
+        "value": "SCSI"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "CacheDisk,NvmeDisk,ResourceDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "640"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "80"
+      },
+      {
+        "name": "GPUs",
+        "value": "2"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "64000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "512000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "512000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "691489734656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "240000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "7000000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "7324218"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "3662109"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "False"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "StandardNCadsH100v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC80adis_H100_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC80adis_H100_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "360448"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "8"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "56"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "False"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "8"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "32000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "503316480"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "503316480"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "48000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "737280000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "Standard NCASv3_T4 Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC8as_T4_v3",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC8as_T4_v3",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "262144"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "96"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "880"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "96"
+      },
+      {
+        "name": "GPUs",
+        "value": "4"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "128000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "1024000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "1024000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "1099511627776"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "120000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "4000000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "3662109"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "915527"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "StandardNCADSA100v4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NC96ads_A100_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NC96ads_A100_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "2969600"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "96"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "1800"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "96"
+      },
+      {
+        "name": "GPUs",
+        "value": "8"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "1464000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "10307921510"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "9663676416"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "1099511627776"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "80000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "1228800000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "7324218"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "915527"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "False"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "True"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "standard NDAMSv4_A100Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1"
+            ]
+          }
+        ],
+        "zones": [
+          "1"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_ND96amsr_A100_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "ND96amsr_A100_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "1048576"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "96"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V2"
+      },
+      {
+        "name": "DiskControllerTypes",
+        "value": "SCSI,NVMe"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "1900"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "96"
+      },
+      {
+        "name": "GPUs",
+        "value": "8"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "1"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "1099511627776"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "80000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "1200000000"
+      },
+      {
+        "name": "NvmeDiskSizeInMiB",
+        "value": "29296875"
+      },
+      {
+        "name": "NvmeSizePerDiskInMiB",
+        "value": "3662109"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "False"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "True"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "standardNDSH100v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "2"
+            ]
+          }
+        ],
+        "zones": [
+          "2"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_ND96isr_H100_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [
+      {
+        "reasonCode": "NotAvailableForSubscription",
+        "restrictionInfo": {
+          "locations": [
+            "SwedenCentral"
+          ]
+        },
+        "type": "Location",
+        "values": [
+          "SwedenCentral"
+        ]
+      },
+      {
+        "reasonCode": "NotAvailableForSubscription",
+        "restrictionInfo": {
+          "locations": [
+            "SwedenCentral"
+          ],
+          "zones": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "type": "Zone",
+        "values": [
+          "SwedenCentral"
+        ]
+      }
+    ],
+    "size": "ND96isr_H100_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "368640"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "12"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "110"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "8"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "12"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "42000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "500000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "500000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "274877906944"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "12800"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "200000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "4"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV12ads_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV12ads_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "360448"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "16"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "56"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "16"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "32000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "268435456"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "268435456"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "25600"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "384000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "standardNVSv4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3",
+              "1"
+            ]
+          }
+        ],
+        "zones": [
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV16as_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV16as_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "737280"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "18"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "220"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "18"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "75000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "1000000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "1000000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "274877906944"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "25600"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "384000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "6"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV18ads_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV18ads_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "720896"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "32"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "112"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "32"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "64000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "536870912"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "536870912"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "326417514496"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "51200"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "768000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "standardNVSv4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3",
+              "1"
+            ]
+          }
+        ],
+        "zones": [
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV32as_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV32as_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "2949120"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "36"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "880"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "36"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "150000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "2000000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "2000000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "1099511627776"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "51200"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "768000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV36adms_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV36adms_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "1474560"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "36"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "440"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "36"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "150000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "2000000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "2000000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "549755813888"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "51200"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "768000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV36ads_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV36ads_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "90112"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "4"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "14"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "8"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "4"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "8000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "67108864"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "67108864"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "34359738368"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "6400"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "96000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "2"
+      }
+    ],
+    "family": "standardNVSv4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3",
+              "1"
+            ]
+          }
+        ],
+        "zones": [
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV4as_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV4as_v4",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "184320"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "6"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "55"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "4"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "6"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "20000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "250000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "250000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "154618822656"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "6400"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "100000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "2"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV6ads_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV6ads_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "2949120"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "72"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "880"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "32"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "72"
+      },
+      {
+        "name": "GPUs",
+        "value": "2"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "300000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "4000000000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "4000000000"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "1099511627776"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "80000"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "1200000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "8"
+      }
+    ],
+    "family": "StandardNVADSA10v5Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "1",
+              "3"
+            ]
+          }
+        ],
+        "zones": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV72ads_A10_v5",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV72ads_A10_v5",
+    "tier": "Standard"
+  },
+  {
+    "capabilities": [
+      {
+        "name": "MaxResourceVolumeMB",
+        "value": "180224"
+      },
+      {
+        "name": "OSVhdSizeMB",
+        "value": "1047552"
+      },
+      {
+        "name": "vCPUs",
+        "value": "8"
+      },
+      {
+        "name": "MemoryPreservingMaintenanceSupported",
+        "value": "False"
+      },
+      {
+        "name": "HyperVGenerations",
+        "value": "V1,V2"
+      },
+      {
+        "name": "SupportedEphemeralOSDiskPlacements",
+        "value": "ResourceDisk,CacheDisk"
+      },
+      {
+        "name": "MemoryGB",
+        "value": "28"
+      },
+      {
+        "name": "MaxDataDiskCount",
+        "value": "16"
+      },
+      {
+        "name": "CpuArchitectureType",
+        "value": "x64"
+      },
+      {
+        "name": "LowPriorityCapable",
+        "value": "True"
+      },
+      {
+        "name": "HibernationSupported",
+        "value": "True"
+      },
+      {
+        "name": "PremiumIO",
+        "value": "True"
+      },
+      {
+        "name": "VMDeploymentTypes",
+        "value": "IaaS"
+      },
+      {
+        "name": "vCPUsAvailable",
+        "value": "8"
+      },
+      {
+        "name": "GPUs",
+        "value": "1"
+      },
+      {
+        "name": "vCPUsPerCore",
+        "value": "2"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedIOPS",
+        "value": "16000"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedReadBytesPerSecond",
+        "value": "134217728"
+      },
+      {
+        "name": "CombinedTempDiskAndCachedWriteBytesPerSecond",
+        "value": "134217728"
+      },
+      {
+        "name": "CachedDiskBytes",
+        "value": "68719476736"
+      },
+      {
+        "name": "UncachedDiskIOPS",
+        "value": "12800"
+      },
+      {
+        "name": "UncachedDiskBytesPerSecond",
+        "value": "192000000"
+      },
+      {
+        "name": "EphemeralOSDiskSupported",
+        "value": "True"
+      },
+      {
+        "name": "EncryptionAtHostSupported",
+        "value": "True"
+      },
+      {
+        "name": "CapacityReservationSupported",
+        "value": "True"
+      },
+      {
+        "name": "AcceleratedNetworkingEnabled",
+        "value": "True"
+      },
+      {
+        "name": "RdmaEnabled",
+        "value": "False"
+      },
+      {
+        "name": "MaxNetworkInterfaces",
+        "value": "4"
+      }
+    ],
+    "family": "standardNVSv4Family",
+    "locationInfo": [
+      {
+        "location": "SwedenCentral",
+        "zoneDetails": [
+          {
+            "capabilities": [
+              {
+                "name": "UltraSSDAvailable",
+                "value": "True"
+              }
+            ],
+            "name": [
+              "3",
+              "1"
+            ]
+          }
+        ],
+        "zones": [
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "locations": [
+      "SwedenCentral"
+    ],
+    "name": "Standard_NV8as_v4",
+    "resourceType": "virtualMachines",
+    "restrictions": [],
+    "size": "NV8as_v4",
+    "tier": "Standard"
+  }
+]

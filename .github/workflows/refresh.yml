@@ -1,0 +1,23 @@
+name: Refresh Models
+
+on:
+  push:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python datapipeline/update_models.py
+      - run: |
+          git config user.name "bot"
+          git config user.email "bot@example.com"
+          git add data/models.json
+          git commit -m "auto: refresh models" || echo "no changes"
+          git push

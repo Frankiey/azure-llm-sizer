@@ -53,3 +53,13 @@ python3 datapipeline/generate_golden_dataset.py
 
 This command writes the parsed information to `datapipeline/parsed_gpus.json`
 and updates `data/azure-gpus.json`.
+
+### Updating the model catalogue
+
+Run the helper script to refresh `data/models.json` with the latest metadata from the Hugging Face Hub:
+
+```bash
+python3 datapipeline/update_models.py
+```
+
+The script enforces the JSON schema with `pydantic` and fetches each model's configuration directly from the hub. A GitHub Actions workflow (`refresh.yml`) performs the same operation automatically every day.

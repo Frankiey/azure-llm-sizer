@@ -8,6 +8,7 @@
 - `data/` – JSON files describing available Azure GPU SKUs and model metadata.
 - `index.html` – entry point used by Vite.
 - `.github/workflows/` – GitHub Actions workflow that builds the application and deploys it to GitHub Pages.
+- `datapipeline/` – scripts for fetching VM information and producing the GPU SKU dataset.
 
 ## Local development
 
@@ -39,3 +40,16 @@ npm run preview
 ```
 
 Deployment to GitHub Pages occurs automatically when changes are pushed to the `main` branch.
+
+### Generating the GPU dataset
+
+The raw VM SKU information is stored in `datapipeline/vms.json`. Run the Python
+script in that folder to produce the golden dataset consumed by the
+application:
+
+```bash
+python3 datapipeline/generate_golden_dataset.py
+```
+
+This command writes the parsed information to `datapipeline/parsed_gpus.json`
+and updates `data/azure-gpus.json`.

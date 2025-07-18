@@ -63,3 +63,4 @@ python3 datapipeline/update_models.py
 ```
 
 The script enforces the JSON schema with `pydantic` and fetches each model's configuration directly from the hub. A GitHub Actions workflow (`refresh.yml`) performs the same operation automatically every day.
+Models that require accepting a license on Hugging Face are skipped during the update and keep their existing values.

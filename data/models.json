@@ -166,5 +166,187 @@
     "layers": 70,
     "hidden": 14336,
     "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-0528",
+    "params_b": 685.0,
+    "layers": 61,
+    "hidden": 7168,
+    "moe_active_ratio": 0.05
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1",
+    "params_b": 685.0,
+    "layers": 61,
+    "hidden": 7168,
+    "moe_active_ratio": 0.05
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3-0324",
+    "params_b": 671.0,
+    "layers": 61,
+    "hidden": 7168,
+    "moe_active_ratio": 0.06
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3",
+    "params_b": 671.0,
+    "layers": 61,
+    "hidden": 7168,
+    "moe_active_ratio": 0.06
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+    "params_b": 8.19,
+    "layers": 36,
+    "hidden": 4096,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "params_b": 32.0,
+    "layers": 64,
+    "hidden": 5120,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+    "params_b": 14.0,
+    "layers": 48,
+    "hidden": 5120,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+    "params_b": 70.0,
+    "layers": 80,
+    "hidden": 8192,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen3-4B",
+    "params_b": 4.02,
+    "layers": 36,
+    "hidden": 2560,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen3-8B",
+    "params_b": 8.19,
+    "layers": 36,
+    "hidden": 4096,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen3-14B",
+    "params_b": 14.8,
+    "layers": 40,
+    "hidden": 5120,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen3-30B-A3B",
+    "params_b": 30.5,
+    "layers": 48,
+    "hidden": 2048,
+    "moe_active_ratio": 0.11
+  },
+  {
+    "model_id": "Qwen/Qwen3-32B",
+    "params_b": 32.8,
+    "layers": 64,
+    "hidden": 5120,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen3-235B-A22B",
+    "params_b": 235.0,
+    "layers": 94,
+    "hidden": 4096,
+    "moe_active_ratio": 0.09
+  },
+  {
+    "model_id": "MiniMaxAI/MiniMax-M1-80k",
+    "params_b": 456.0,
+    "layers": 80,
+    "hidden": 6144,
+    "moe_active_ratio": 0.1
+  },
+  {
+    "model_id": "MiniMaxAI/MiniMax-M1-40k",
+    "params_b": 456.0,
+    "layers": 80,
+    "hidden": 6144,
+    "moe_active_ratio": 0.1
+  },
+  {
+    "model_id": "MiniMaxAI/MiniMax-Text-01",
+    "params_b": 456.0,
+    "layers": 80,
+    "hidden": 6144,
+    "moe_active_ratio": 0.1
+  },
+  {
+    "model_id": "moonshotai/Kimi-K2-Instruct",
+    "params_b": 32.0,
+    "layers": 61,
+    "hidden": 7168,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "RekaAI/reka-flash-3",
+    "params_b": 21.0,
+    "layers": 44,
+    "hidden": 6144,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "mistralai/Mistral-Small-3.2",
+    "params_b": 24.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "mistralai/Mistral-Small-3.1",
+    "params_b": 24.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "mistralai/Mistral-Small-3",
+    "params_b": 24.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "mistralai/Mistral-Large-2",
+    "params_b": 123.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "mistralai/Mistral-Large-2-2024",
+    "params_b": 123.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Cohere/command-a",
+    "params_b": 111.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-Instruct-72B",
+    "params_b": 72.0,
+    "layers": 0,
+    "hidden": 0,
+    "moe_active_ratio": 0.0
   }
 ]

@@ -324,16 +324,17 @@ body {
     transform: translateY(0);
 }
 
+
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .result-item {
     background: white;
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
     transition: var(--transition);
@@ -345,8 +346,8 @@ body {
 }
 
 .result-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .result-label {
@@ -356,18 +357,18 @@ body {
 }
 
 .result-value {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-blue);
 }
 
 .progress-bar {
     width: 100%;
-    height: 8px;
+    height: 6px;
     background: #E1E1E1;
     border-radius: 4px;
     overflow: hidden;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .progress-fill {

@@ -56,7 +56,7 @@ body {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
-    padding: 2.5rem;
+    padding: 2rem;
     margin-bottom: 1rem;
     transition: var(--transition);
 }
@@ -64,7 +64,7 @@ body {
 /* Layout for configuration on the left and results on the right */
 .layout {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: flex-start;
 }
 .select-panel,
@@ -72,9 +72,20 @@ body {
     flex: 1;
 }
 
+.select-panel {
+    max-width: 40%;
+}
+
+.results-panel {
+    flex: 1;
+}
+
 @media (max-width: 768px) {
     .layout {
         flex-direction: column;
+    }
+    .select-panel {
+        max-width: 100%;
     }
 }
 
@@ -315,14 +326,14 @@ body {
 
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .result-item {
     background: white;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
     transition: var(--transition);

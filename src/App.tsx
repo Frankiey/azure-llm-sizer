@@ -102,9 +102,10 @@ function App() {
         <p>Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
       </div>
 
-      <div className="main-card">
-        <div className="section">
-          <h2 className="section-title">🤖 Select Model</h2>
+      <div className="layout">
+        <div className="main-card select-panel">
+          <div className="section">
+            <h2 className="section-title">🤖 Select Model</h2>
           <div className="model-sort">
             <label className="control-label" htmlFor="sort-select">Sort By</label>
             <select
@@ -187,7 +188,9 @@ function App() {
             {loading ? 'Calculating...' : 'Calculate Requirements'}
           </button>
         </div>
+        </div>
 
+        <div className="main-card results-panel">
         {result && (
           <div className={`results${!loading ? ' show' : ''}`} id="results">
             <h2 className="section-title">📊 Results</h2>
@@ -276,6 +279,7 @@ function App() {
             )}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

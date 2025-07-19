@@ -61,6 +61,23 @@ body {
     transition: var(--transition);
 }
 
+/* Layout for configuration on the left and results on the right */
+.layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+.select-panel,
+.results-panel {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+}
+
 .main-card:hover {
     box-shadow: var(--card-shadow-hover);
 }

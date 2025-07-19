@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
 import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
@@ -12,6 +12,8 @@ interface ModelInfo {
   hidden: number;
   moe_active_ratio: number;
 }
+
+type SortOption = 'size_desc' | 'size_asc' | 'name';
 
 const precisions: Precision[] = ['fp16', 'fp32', 'int8', 'int4'];
 const ctxOptions = [
@@ -35,8 +37,25 @@ function App() {
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [sortOption, setSortOption] = useState<SortOption>('size_desc');
 
   const ctx = ctxOptions[ctxIndex];
+
+  const sortedModels = useMemo(() => {
+    const arr = (models as ModelInfo[]).slice();
+    switch (sortOption) {
+      case 'size_asc':
+        arr.sort((a, b) => a.params_b - b.params_b);
+        break;
+      case 'name':
+        arr.sort((a, b) => a.model_id.localeCompare(b.model_id));
+        break;
+      default:
+        arr.sort((a, b) => b.params_b - a.params_b);
+        break;
+    }
+    return arr;
+  }, [sortOption]);
 
   const calc = () => {
     const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
@@ -85,25 +104,41 @@ function App() {
       <div className="main-card">
         <div className="section">
           <h2 className="section-title">🤖 Select Model</h2>
-          <div className="model-grid">
-            {(models as ModelInfo[]).map((m) => {
-              const name = m.model_id.split('/').pop();
-              return (
-                <button
-                  key={m.model_id}
-                  className={`model-btn${m.model_id === modelId ? ' active' : ''}`}
-                  onClick={() => {
-                    setModelId(m.model_id);
-                    calc();
-                  }}
-                >
-                  <span className="model-name">{name}</span>
-                  <span className="model-size">{m.params_b}B parameters</span>
-                </button>
-              );
-            })}
+          <div className="model-sort">
+            <label className="control-label" htmlFor="sort-select">Sort By</label>
+            <select
+              id="sort-select"
+              className="control-input"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value as SortOption)}
+            >
+              <option value="size_desc">Size ↓</option>
+              <option value="size_asc">Size ↑</option>
+              <option value="name">Name</option>
+            </select>
           </div>
-        </div>
+            <div className="model-list">
+              <div className="model-grid">
+                {sortedModels.map((m) => {
+                  const name = m.model_id.split('/').pop();
+                  return (
+                    <button
+                      key={m.model_id}
+                      className={`model-btn${m.model_id === modelId ? ' active' : ''}`}
+                      onClick={() => {
+                        setModelId(m.model_id);
+                        calc();
+                      }}
+                    >
+                      <span className="model-name">{name}</span>
+                      <span className="model-size">{m.params_b}B parameters</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
 
         <div className="section">
           <h2 className="section-title">⚙️ Configuration</h2>

@@ -33,7 +33,8 @@ const MAX_MEM = 160; // for progress bar scaling
 function App() {
   const [modelId, setModelId] = useState<string>((models as ModelInfo[])[0].model_id);
   const [precision, setPrecision] = useState<Precision>('fp16');
-  const [ctxIndex, setCtxIndex] = useState<number>(2);
+  // default to 128k context length
+  const [ctxIndex, setCtxIndex] = useState<number>(7);
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -170,6 +171,9 @@ function App() {
                   step={1}
                   value={ctxIndex}
                   onChange={(e) => setCtxIndex(Number(e.target.value))}
+                  style={{
+                    '--progress': `${(ctxIndex / (ctxOptions.length - 1)) * 100}%`,
+                  } as React.CSSProperties}
                 />
                 <div className="slider-labels">
                   {ctxOptions.map((v) => (

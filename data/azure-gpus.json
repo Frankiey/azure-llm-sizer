@@ -3,126 +3,147 @@
     "sku": "Standard_NC16as_T4_v3",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncast4_v3-series"
   },
   {
     "sku": "Standard_NC24ads_A100_v4",
     "gpu_model": "A100",
     "gpus_per_vm": 1,
-    "vram_gb": 40
+    "vram_gb": 40,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#nc_a100_v4-series"
   },
   {
     "sku": "Standard_NC40ads_H100_v5",
     "gpu_model": "H100",
     "gpus_per_vm": 1,
-    "vram_gb": 80
+    "vram_gb": 80,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncads_h100_v5-series"
   },
   {
     "sku": "Standard_NC48ads_A100_v4",
     "gpu_model": "A100",
     "gpus_per_vm": 2,
-    "vram_gb": 40
+    "vram_gb": 40,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#nc_a100_v4-series"
   },
   {
     "sku": "Standard_NC4as_T4_v3",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncast4_v3-series"
   },
   {
     "sku": "Standard_NC64as_T4_v3",
     "gpu_model": "T4",
     "gpus_per_vm": 4,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncast4_v3-series"
   },
   {
     "sku": "Standard_NC80adis_H100_v5",
     "gpu_model": "H100",
     "gpus_per_vm": 2,
-    "vram_gb": 80
+    "vram_gb": 80,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncads_h100_v5-series"
   },
   {
     "sku": "Standard_NC8as_T4_v3",
     "gpu_model": "T4",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#ncast4_v3-series"
   },
   {
     "sku": "Standard_NC96ads_A100_v4",
     "gpu_model": "A100",
     "gpus_per_vm": 4,
-    "vram_gb": 40
+    "vram_gb": 40,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nc-family#nc_a100_v4-series"
   },
   {
     "sku": "Standard_ND96amsr_A100_v4",
     "gpu_model": "A100",
     "gpus_per_vm": 8,
-    "vram_gb": 80
+    "vram_gb": 80,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nd-family#ndm_a100_v4-series"
   },
   {
     "sku": "Standard_ND96isr_H100_v5",
     "gpu_model": "H100",
     "gpus_per_vm": 8,
-    "vram_gb": 80
+    "vram_gb": 80,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nd-family#nd_h100_v5-series"
   },
   {
     "sku": "Standard_NV12ads_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV16as_v4",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvv4-series"
   },
   {
     "sku": "Standard_NV18ads_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV32as_v4",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvv4-series"
   },
   {
     "sku": "Standard_NV36adms_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV36ads_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV4as_v4",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvv4-series"
   },
   {
     "sku": "Standard_NV6ads_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 1,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV72ads_A10_v5",
     "gpu_model": "A10",
     "gpus_per_vm": 2,
-    "vram_gb": 24
+    "vram_gb": 24,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvads-a10-v5-series"
   },
   {
     "sku": "Standard_NV8as_v4",
     "gpu_model": "MI25",
     "gpus_per_vm": 1,
-    "vram_gb": 16
+    "vram_gb": 16,
+    "docs_url": "https://learn.microsoft.com/azure/virtual-machines/sizes/gpu-accelerated/nv-family#nvv4-series"
   }
 ]

@@ -464,6 +464,20 @@ body {
     opacity: 0.9;
 }
 
+.docs-link {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.docs-link a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.docs-link a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;

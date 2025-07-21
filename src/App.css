@@ -54,7 +54,6 @@ body {
 
 .github-btn {
     display: inline-block;
-    margin-top: 1rem;
     background: #24292e;
     color: white;
     text-decoration: none;
@@ -66,6 +65,16 @@ body {
 
 .github-btn:hover {
     background: #57606a;
+}
+
+.github-links {
+    margin-top: 1rem;
+}
+
+.github-star {
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: middle;
 }
 
 .main-card {

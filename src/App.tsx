@@ -88,6 +88,7 @@ function App() {
 
   const formatCtx = (v: number) => (v >= 1024 ? `${v / 1024}k` : v.toString());
 
+
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
@@ -270,6 +271,11 @@ function App() {
                   <div className="command-text" id="command-text">
                     {`az vm create --name llm --size ${result.sku.sku} --image UbuntuLTS`}
                   </div>
+                </div>
+                <div className="docs-link">
+                  <a href={result.sku.docs_url} target="_blank" rel="noopener noreferrer">
+                    View Azure Learn docs for this VM family
+                  </a>
                 </div>
               </>
             ) : (

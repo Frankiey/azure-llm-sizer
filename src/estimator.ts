@@ -31,6 +31,7 @@ export interface AzureGpuSku {
   gpu_model: string;
   gpus_per_vm: number;
   vram_gb: number;
+  docs_url: string;
 }
 
 export interface EstimateFullInput extends EstimateInput {

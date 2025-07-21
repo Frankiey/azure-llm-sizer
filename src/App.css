@@ -52,6 +52,22 @@ body {
     margin: 0 auto;
 }
 
+.github-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #24292e;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.github-btn:hover {
+    background: #57606a;
+}
+
 .main-card {
     background: white;
     border-radius: var(--border-radius);

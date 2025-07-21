@@ -44,6 +44,45 @@ function App() {
 
   const ctx = ctxOptions[ctxIndex];
 
+  // read configuration from query parameters on initial load
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const queryModel = params.get('model');
+    if (queryModel) {
+      const found = (models as ModelInfo[]).find((m) => {
+        const slug = m.model_id.split('/').pop()?.toLowerCase() ?? m.model_id.toLowerCase();
+        return slug === queryModel.toLowerCase() || m.model_id.toLowerCase() === queryModel.toLowerCase();
+      });
+      if (found) {
+        setModelId(found.model_id);
+        setSearch(found.model_id.split('/').pop() ?? found.model_id);
+      }
+    }
+    const queryPrec = params.get('prec') as Precision | null;
+    if (queryPrec && precisions.includes(queryPrec)) {
+      setPrecision(queryPrec);
+    }
+    const queryCtx = params.get('ctx');
+    if (queryCtx) {
+      const match = queryCtx.toLowerCase().match(/^(\d+)(k)?$/);
+      if (match) {
+        const val = parseInt(match[1], 10) * (match[2] ? 1024 : 1);
+        const idx = ctxOptions.indexOf(val);
+        if (idx !== -1) setCtxIndex(idx);
+      }
+    }
+  }, []);
+
+  // update the query string whenever relevant state changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set('model', modelId.split('/').pop() ?? modelId);
+    params.set('prec', precision);
+    params.set('ctx', formatCtx(ctx));
+    const url = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', url);
+  }, [modelId, precision, ctx]);
+
   const sortedModels = useMemo(() => {
     const arr = (models as ModelInfo[]).slice();
     switch (sortOption) {

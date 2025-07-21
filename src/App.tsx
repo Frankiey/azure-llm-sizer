@@ -39,6 +39,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
+  const [search, setSearch] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const ctx = ctxOptions[ctxIndex];
 
@@ -57,6 +59,26 @@ function App() {
     }
     return arr;
   }, [sortOption]);
+
+  const filteredModels = useMemo(() => {
+    const term = search.toLowerCase();
+    return sortedModels.filter((m) => m.model_id.toLowerCase().includes(term));
+  }, [search, sortedModels]);
+
+  const highlightMatch = (name: string) => {
+    if (!search) return name;
+    const lower = name.toLowerCase();
+    const term = search.toLowerCase();
+    const index = lower.indexOf(term);
+    if (index === -1) return name;
+    return (
+      <>
+        {name.slice(0, index)}
+        <span className="highlight">{name.slice(index, index + term.length)}</span>
+        {name.slice(index + term.length)}
+      </>
+    );
+  };
 
   const calc = () => {
     const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
@@ -120,26 +142,43 @@ function App() {
               <option value="name">Name</option>
             </select>
           </div>
-            <div className="model-list">
-              <div className="model-grid">
-                {sortedModels.map((m) => {
-                  const name = m.model_id.split('/').pop();
+          <div className="model-select">
+            <label className="control-label" htmlFor="model-input">Model</label>
+            <input
+              id="model-input"
+              className="model-input"
+              type="text"
+              placeholder="Type to search..."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setDropdownOpen(true);
+              }}
+              onFocus={() => setDropdownOpen(true)}
+            />
+            {dropdownOpen && (
+              <div className="model-dropdown">
+                {filteredModels.map((m) => {
+                  const name = m.model_id.split('/').pop() ?? m.model_id;
                   return (
-                    <button
+                    <div
                       key={m.model_id}
-                      className={`model-btn${m.model_id === modelId ? ' active' : ''}`}
+                      className={`dropdown-item${m.model_id === modelId ? ' active' : ''}`}
                       onClick={() => {
                         setModelId(m.model_id);
+                        setSearch(name);
+                        setDropdownOpen(false);
                         calc();
                       }}
                     >
-                      <span className="model-name">{name}</span>
+                      <span className="model-name">{highlightMatch(name)}</span>
                       <span className="model-size">{m.params_b}B parameters</span>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
-            </div>
+            )}
+          </div>
 
           </div>
 

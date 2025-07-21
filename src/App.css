@@ -233,6 +233,11 @@ body {
     color: var(--primary-blue);
 }
 
+.highlight {
+    background-color: var(--primary-blue-light);
+    font-weight: 600;
+}
+
 .controls {
     display: flex;
     flex-wrap: wrap;

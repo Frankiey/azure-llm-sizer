@@ -65,6 +65,21 @@ function App() {
     return sortedModels.filter((m) => m.model_id.toLowerCase().includes(term));
   }, [search, sortedModels]);
 
+  const highlightMatch = (name: string) => {
+    if (!search) return name;
+    const lower = name.toLowerCase();
+    const term = search.toLowerCase();
+    const index = lower.indexOf(term);
+    if (index === -1) return name;
+    return (
+      <>
+        {name.slice(0, index)}
+        <span className="highlight">{name.slice(index, index + term.length)}</span>
+        {name.slice(index + term.length)}
+      </>
+    );
+  };
+
   const calc = () => {
     const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
     if (!model) return;
@@ -144,19 +159,19 @@ function App() {
             {dropdownOpen && (
               <div className="model-dropdown">
                 {filteredModels.map((m) => {
-                  const name = m.model_id.split('/').pop();
+                  const name = m.model_id.split('/').pop() ?? m.model_id;
                   return (
                     <div
                       key={m.model_id}
                       className={`dropdown-item${m.model_id === modelId ? ' active' : ''}`}
                       onClick={() => {
                         setModelId(m.model_id);
-                        setSearch(name ?? m.model_id);
+                        setSearch(name);
                         setDropdownOpen(false);
                         calc();
                       }}
                     >
-                      <span className="model-name">{name}</span>
+                      <span className="model-name">{highlightMatch(name)}</span>
                       <span className="model-size">{m.params_b}B parameters</span>
                     </div>
                   );

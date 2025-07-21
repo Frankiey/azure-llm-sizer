@@ -39,6 +39,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
+  const [search, setSearch] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const ctx = ctxOptions[ctxIndex];
 
@@ -57,6 +59,11 @@ function App() {
     }
     return arr;
   }, [sortOption]);
+
+  const filteredModels = useMemo(() => {
+    const term = search.toLowerCase();
+    return sortedModels.filter((m) => m.model_id.toLowerCase().includes(term));
+  }, [search, sortedModels]);
 
   const calc = () => {
     const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
@@ -120,26 +127,43 @@ function App() {
               <option value="name">Name</option>
             </select>
           </div>
-            <div className="model-list">
-              <div className="model-grid">
-                {sortedModels.map((m) => {
+          <div className="model-select">
+            <label className="control-label" htmlFor="model-input">Model</label>
+            <input
+              id="model-input"
+              className="model-input"
+              type="text"
+              placeholder="Type to search..."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setDropdownOpen(true);
+              }}
+              onFocus={() => setDropdownOpen(true)}
+            />
+            {dropdownOpen && (
+              <div className="model-dropdown">
+                {filteredModels.map((m) => {
                   const name = m.model_id.split('/').pop();
                   return (
-                    <button
+                    <div
                       key={m.model_id}
-                      className={`model-btn${m.model_id === modelId ? ' active' : ''}`}
+                      className={`dropdown-item${m.model_id === modelId ? ' active' : ''}`}
                       onClick={() => {
                         setModelId(m.model_id);
+                        setSearch(name ?? m.model_id);
+                        setDropdownOpen(false);
                         calc();
                       }}
                     >
                       <span className="model-name">{name}</span>
                       <span className="model-size">{m.params_b}B parameters</span>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
-            </div>
+            )}
+          </div>
 
           </div>
 

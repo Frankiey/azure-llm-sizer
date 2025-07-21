@@ -31,22 +31,15 @@ const ctxOptions = [
 const MAX_MEM = 160; // for progress bar scaling
 
 function App() {
-  const [modelId, setModelId] = useState<string>((models as ModelInfo[])[0].model_id);
-  const [precision, setPrecision] = useState<Precision>('fp16');
-  // default to 128k context length
-  const [ctxIndex, setCtxIndex] = useState<number>(7);
-  const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [sortOption, setSortOption] = useState<SortOption>('size_desc');
-  const [search, setSearch] = useState('');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const ctx = ctxOptions[ctxIndex];
-
-  // read configuration from query parameters on initial load
-  useEffect(() => {
+  // read configuration from query parameters before initializing state
+  const query = useMemo(() => {
     const params = new URLSearchParams(window.location.search);
+    const result = {
+      modelId: (models as ModelInfo[])[0].model_id,
+      precision: 'fp16' as Precision,
+      ctxIndex: 7,
+      search: '',
+    };
     const queryModel = params.get('model');
     if (queryModel) {
       const found = (models as ModelInfo[]).find((m) => {
@@ -54,13 +47,13 @@ function App() {
         return slug === queryModel.toLowerCase() || m.model_id.toLowerCase() === queryModel.toLowerCase();
       });
       if (found) {
-        setModelId(found.model_id);
-        setSearch(found.model_id.split('/').pop() ?? found.model_id);
+        result.modelId = found.model_id;
+        result.search = found.model_id.split('/').pop() ?? found.model_id;
       }
     }
     const queryPrec = params.get('prec') as Precision | null;
     if (queryPrec && precisions.includes(queryPrec)) {
-      setPrecision(queryPrec);
+      result.precision = queryPrec;
     }
     const queryCtx = params.get('ctx');
     if (queryCtx) {
@@ -68,10 +61,25 @@ function App() {
       if (match) {
         const val = parseInt(match[1], 10) * (match[2] ? 1024 : 1);
         const idx = ctxOptions.indexOf(val);
-        if (idx !== -1) setCtxIndex(idx);
+        if (idx !== -1) result.ctxIndex = idx;
       }
     }
+    return result;
   }, []);
+
+  const [modelId, setModelId] = useState<string>(query.modelId);
+  const [precision, setPrecision] = useState<Precision>(query.precision);
+  // default to 128k context length unless overridden by query string
+  const [ctxIndex, setCtxIndex] = useState<number>(query.ctxIndex);
+  const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [sortOption, setSortOption] = useState<SortOption>('size_desc');
+  const [search, setSearch] = useState(query.search);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const ctx = ctxOptions[ctxIndex];
+
 
   // update the query string whenever relevant state changes
   useEffect(() => {

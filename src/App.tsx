@@ -137,8 +137,8 @@ function App() {
             src="https://ghbtns.com/github-btn.html?user=Frankiey&repo=azure-llm-sizer&type=star&count=true"
             frameBorder="0"
             scrolling="0"
-            width="100"
-            height="20"
+            width="200"
+            height="40"
             title="GitHub"
           ></iframe>
         </div>

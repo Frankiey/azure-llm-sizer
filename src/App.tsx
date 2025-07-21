@@ -31,18 +31,65 @@ const ctxOptions = [
 const MAX_MEM = 160; // for progress bar scaling
 
 function App() {
-  const [modelId, setModelId] = useState<string>((models as ModelInfo[])[0].model_id);
-  const [precision, setPrecision] = useState<Precision>('fp16');
-  // default to 128k context length
-  const [ctxIndex, setCtxIndex] = useState<number>(7);
+  // read configuration from query parameters before initializing state
+  const query = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const result = {
+      modelId: (models as ModelInfo[])[0].model_id,
+      precision: 'fp16' as Precision,
+      ctxIndex: 7,
+      search: '',
+    };
+    const queryModel = params.get('model');
+    if (queryModel) {
+      const found = (models as ModelInfo[]).find((m) => {
+        const slug = m.model_id.split('/').pop()?.toLowerCase() ?? m.model_id.toLowerCase();
+        return slug === queryModel.toLowerCase() || m.model_id.toLowerCase() === queryModel.toLowerCase();
+      });
+      if (found) {
+        result.modelId = found.model_id;
+        result.search = found.model_id.split('/').pop() ?? found.model_id;
+      }
+    }
+    const queryPrec = params.get('prec') as Precision | null;
+    if (queryPrec && precisions.includes(queryPrec)) {
+      result.precision = queryPrec;
+    }
+    const queryCtx = params.get('ctx');
+    if (queryCtx) {
+      const match = queryCtx.toLowerCase().match(/^(\d+)(k)?$/);
+      if (match) {
+        const val = parseInt(match[1], 10) * (match[2] ? 1024 : 1);
+        const idx = ctxOptions.indexOf(val);
+        if (idx !== -1) result.ctxIndex = idx;
+      }
+    }
+    return result;
+  }, []);
+
+  const [modelId, setModelId] = useState<string>(query.modelId);
+  const [precision, setPrecision] = useState<Precision>(query.precision);
+  // default to 128k context length unless overridden by query string
+  const [ctxIndex, setCtxIndex] = useState<number>(query.ctxIndex);
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const ctx = ctxOptions[ctxIndex];
+
+
+  // update the query string whenever relevant state changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set('model', modelId.split('/').pop() ?? modelId);
+    params.set('prec', precision);
+    params.set('ctx', formatCtx(ctx));
+    const url = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', url);
+  }, [modelId, precision, ctx]);
 
   const sortedModels = useMemo(() => {
     const arr = (models as ModelInfo[]).slice();

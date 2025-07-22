@@ -3,7 +3,6 @@ import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
 import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
 import { estimateWithSku } from './estimator';
-import './App.css';
 
 interface ModelInfo {
   model_id: string;
@@ -121,7 +120,7 @@ function App() {
     return (
       <>
         {name.slice(0, index)}
-        <span className="highlight">{name.slice(index, index + term.length)}</span>
+        <span className="bg-blue-100 font-semibold">{name.slice(index, index + term.length)}</span>
         {name.slice(index + term.length)}
       </>
     );
@@ -166,212 +165,220 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <h1>🚀 Azure LLM Sizer</h1>
-        <p>Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
-      </div>
+    <div className="max-w-7xl mx-auto p-6">
+      <header className="text-center mb-8 text-white">
+        <h1 className="text-4xl font-bold mb-2">🚀 Azure LLM Sizer</h1>
+        <p className="text-lg">Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
+      </header>
 
-      <div className="layout">
-        <div className="main-card select-panel">
-          <div className="section">
-            <h2 className="section-title">🤖 Select Model</h2>
-          <div className="model-sort">
-            <label className="control-label" htmlFor="sort-select">Sort By</label>
-            <select
-              id="sort-select"
-              className="control-input"
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value as SortOption)}
-            >
-              <option value="size_desc">Size ↓</option>
-              <option value="size_asc">Size ↑</option>
-              <option value="name">Name</option>
-            </select>
-          </div>
-          <div className="model-select">
-            <label className="control-label" htmlFor="model-input">Model</label>
-            <input
-              id="model-input"
-              className="model-input"
-              type="text"
-              placeholder="Type to search..."
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                setDropdownOpen(true);
-              }}
-              onFocus={() => setDropdownOpen(true)}
-            />
-            {dropdownOpen && (
-              <div className="model-dropdown">
-                {filteredModels.map((m) => {
-                  const name = m.model_id.split('/').pop() ?? m.model_id;
-                  return (
-                    <div
-                      key={m.model_id}
-                      className={`dropdown-item${m.model_id === modelId ? ' active' : ''}`}
-                      onClick={() => {
-                        setModelId(m.model_id);
-                        setSearch(name);
-                        setDropdownOpen(false);
-                        calc();
-                      }}
-                    >
-                      <span className="model-name">{highlightMatch(name)}</span>
-                      <span className="model-size">{m.params_b}B parameters</span>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-
-          </div>
-
-        <div className="section">
-          <h2 className="section-title">⚙️ Configuration</h2>
-          <div className="controls">
-            <div className="control-group">
-              <label className="control-label">Precision</label>
+      <div className="flex flex-col md:flex-row gap-6 items-start">
+        <div className="bg-white rounded shadow p-6 flex-1 md:max-w-[40%]">
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">🤖 Select Model</h2>
+            <div className="flex justify-end mb-4">
+              <label htmlFor="sort-select" className="mr-2 text-sm font-medium">Sort By</label>
               <select
-                className="control-input"
-                value={precision}
-                onChange={(e) => setPrecision(e.target.value as Precision)}
+                id="sort-select"
+                className="border rounded px-2 py-1"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value as SortOption)}
               >
-                {precisions.map((p) => (
-                  <option key={p} value={p}>
-                    {p.toUpperCase()}
-                  </option>
-                ))}
+                <option value="size_desc">Size ↓</option>
+                <option value="size_asc">Size ↑</option>
+                <option value="name">Name</option>
               </select>
             </div>
-            <div className="control-group">
-              <label className="control-label">
-                Context Length: <span id="context-value">{formatCtx(ctx)}</span>
-              </label>
-              <div className="slider-container">
+            <div className="relative">
+              <label htmlFor="model-input" className="block mb-1 text-sm font-medium">Model</label>
+              <input
+                id="model-input"
+                className="w-full border rounded px-3 py-2"
+                type="text"
+                placeholder="Type to search..."
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setDropdownOpen(true);
+                }}
+                onFocus={() => setDropdownOpen(true)}
+              />
+              {dropdownOpen && (
+                <div className="absolute z-10 w-full bg-white border rounded shadow max-h-72 overflow-y-auto">
+                  {filteredModels.map((m) => {
+                    const name = m.model_id.split('/').pop() ?? m.model_id;
+                    return (
+                      <div
+                        key={m.model_id}
+                        className={`px-4 py-3 border-b last:border-b-0 cursor-pointer ${m.model_id === modelId ? 'bg-blue-50 text-blue-700' : 'hover:bg-gray-100'}`}
+                        onClick={() => {
+                          setModelId(m.model_id);
+                          setSearch(name);
+                          setDropdownOpen(false);
+                          calc();
+                        }}
+                      >
+                        <span className="block font-semibold">{highlightMatch(name)}</span>
+                        <span className="text-xs text-gray-500">{m.params_b}B parameters</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">⚙️ Configuration</h2>
+            <div className="flex flex-wrap gap-4 items-end mb-4">
+              <div className="flex flex-col flex-1 min-w-[200px]">
+                <label className="mb-1 text-sm font-medium">Precision</label>
+                <select
+                  className="border rounded p-2"
+                  value={precision}
+                  onChange={(e) => setPrecision(e.target.value as Precision)}
+                >
+                  {precisions.map((p) => (
+                    <option key={p} value={p}>
+                      {p.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex flex-col flex-1 min-w-[200px]">
+                <label className="mb-1 text-sm font-medium">
+                  Context Length: <span id="context-value">{formatCtx(ctx)}</span>
+                </label>
                 <input
                   type="range"
-                  className="slider"
+                  className="w-full"
                   min={0}
                   max={ctxOptions.length - 1}
                   step={1}
                   value={ctxIndex}
                   onChange={(e) => setCtxIndex(Number(e.target.value))}
-                  style={{
-                    '--progress': `${(ctxIndex / (ctxOptions.length - 1)) * 100}%`,
-                  } as React.CSSProperties}
                 />
-                <div className="slider-labels">
+                <div className="flex justify-between text-xs mt-2">
                   {ctxOptions.map((v) => (
                     <span key={v}>{formatCtx(v)}</span>
                   ))}
                 </div>
               </div>
             </div>
+            <button
+              className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 disabled:opacity-50"
+              onClick={handleCalc}
+              disabled={loading}
+            >
+              {loading ? 'Calculating...' : 'Calculate Requirements'}
+            </button>
           </div>
-          <button className={`calculate-btn${loading ? ' loading' : ''}`} onClick={handleCalc}>
-            {loading ? 'Calculating...' : 'Calculate Requirements'}
-          </button>
-        </div>
         </div>
 
-        <div className="main-card results-panel">
-        {result && (
-          <div className={`results${!loading ? ' show' : ''}`} id="results">
-            <h2 className="section-title">📊 Results</h2>
-            <div className="results-grid">
-              <div className="result-item">
-                <div className="result-icon">💾</div>
-                <div className="result-label">Model Weights</div>
-                <div className="result-value" id="weights-value">
-                  {result.weights_gb.toFixed(2)} GB
-                </div>
-                <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: `${Math.min((result.weights_gb / MAX_MEM) * 100, 100)}%` }}
-                  />
-                </div>
-              </div>
-              <div className="result-item">
-                <div className="result-icon">🔄</div>
-                <div className="result-label">KV Cache</div>
-                <div className="result-value" id="kv-value">
-                  {result.kv_gb.toFixed(2)} GB
-                </div>
-                <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: `${Math.min((result.kv_gb / MAX_MEM) * 100, 100)}%` }}
-                  />
-                </div>
-              </div>
-              <div className="result-item">
-                <div className="result-icon">📈</div>
-                <div className="result-label">Total Memory</div>
-                <div className="result-value" id="total-memory">
-                  {result.total_gb.toFixed(2)} GB
-                </div>
-                <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: `${Math.min((result.total_gb / MAX_MEM) * 100, 100)}%` }}
-                  />
-                </div>
-              </div>
-              <div className="result-item">
-                <div className="result-icon">🎮</div>
-                <div className="result-label">GPUs Required</div>
-                <div className="result-value" id="gpu-count">
-                  {result.sku ? `${result.gpus} / ${result.sku.gpus_per_vm} per VM` : 'N/A'}
-                </div>
-                <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: `${result.sku ? (result.gpus / result.sku.gpus_per_vm) * 100 : 0}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {result.sku ? (
-              <>
-                <div className="recommendation">
-                  <div className="recommendation-title">💡 Recommended Configuration</div>
-                  <div className="recommendation-text" id="recommendation-text">
-                    {`${result.sku.sku} (${result.sku.gpu_model} ${result.sku.vram_gb} GB) - Memory per GPU: ${(result.total_gb / result.gpus).toFixed(2)} GB`}
+        <div className="bg-white rounded shadow p-6 flex-1">
+          {result && (
+            <div
+              className={`transition ${!loading ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+              id="results"
+            >
+              <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">📊 Results</h2>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="bg-white p-3 rounded shadow">
+                  <div className="text-lg mb-1">💾</div>
+                  <div className="text-xs text-gray-500 mb-1">Model Weights</div>
+                  <div className="font-bold text-blue-600" id="weights-value">
+                    {result.weights_gb.toFixed(2)} GB
+                  </div>
+                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
+                    <div
+                      className="h-full bg-green-500"
+                      style={{ width: `${Math.min((result.weights_gb / MAX_MEM) * 100, 100)}%` }}
+                    />
                   </div>
                 </div>
-                <div className="command-section">
-                  <div className="command-header">
-                    <div className="command-title">🔧 Azure CLI Command</div>
-                    <button
-                      className="copy-btn"
-                      onClick={() => handleCopy(`az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`)}
+                <div className="bg-white p-3 rounded shadow">
+                  <div className="text-lg mb-1">🔄</div>
+                  <div className="text-xs text-gray-500 mb-1">KV Cache</div>
+                  <div className="font-bold text-blue-600" id="kv-value">
+                    {result.kv_gb.toFixed(2)} GB
+                  </div>
+                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
+                    <div
+                      className="h-full bg-green-500"
+                      style={{ width: `${Math.min((result.kv_gb / MAX_MEM) * 100, 100)}%` }}
+                    />
+                  </div>
+                </div>
+                <div className="bg-white p-3 rounded shadow">
+                  <div className="text-lg mb-1">📈</div>
+                  <div className="text-xs text-gray-500 mb-1">Total Memory</div>
+                  <div className="font-bold text-blue-600" id="total-memory">
+                    {result.total_gb.toFixed(2)} GB
+                  </div>
+                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
+                    <div
+                      className="h-full bg-green-500"
+                      style={{ width: `${Math.min((result.total_gb / MAX_MEM) * 100, 100)}%` }}
+                    />
+                  </div>
+                </div>
+                <div className="bg-white p-3 rounded shadow">
+                  <div className="text-lg mb-1">🎮</div>
+                  <div className="text-xs text-gray-500 mb-1">GPUs Required</div>
+                  <div className="font-bold text-blue-600" id="gpu-count">
+                    {result.sku ? `${result.gpus} / ${result.sku.gpus_per_vm} per VM` : 'N/A'}
+                  </div>
+                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
+                    <div
+                      className="h-full bg-green-500"
+                      style={{ width: `${result.sku ? (result.gpus / result.sku.gpus_per_vm) * 100 : 0}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {result.sku ? (
+                <>
+                  <div className="bg-green-600 text-white p-4 rounded shadow mb-4">
+                    <div className="font-semibold mb-1 flex items-center gap-2">💡 Recommended Configuration</div>
+                    <div id="recommendation-text">
+                      {`${result.sku.sku} (${result.sku.gpu_model} ${result.sku.vram_gb} GB) - Memory per GPU: ${(result.total_gb / result.gpus).toFixed(2)} GB`}
+                    </div>
+                  </div>
+                  <div className="bg-neutral-800 text-white p-4 rounded shadow mb-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="text-cyan-400 font-semibold flex items-center gap-2">🔧 Azure CLI Command</div>
+                      <button
+                        className="bg-blue-600 text-white rounded px-2 py-1"
+                        onClick={() =>
+                          handleCopy(`az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`)
+                        }
+                      >
+                        {copied ? 'Copied!' : 'Copy'}
+                      </button>
+                    </div>
+                    <div className="break-all text-sm" id="command-text">
+                      {`az vm create --name llm --size ${result.sku.sku} --image UbuntuLTS`}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <a
+                      href={result.sku.docs_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
                     >
-                      {copied ? 'Copied!' : 'Copy'}
-                    </button>
+                      View Azure Learn docs for this VM family
+                    </a>
                   </div>
-                  <div className="command-text" id="command-text">
-                    {`az vm create --name llm --size ${result.sku.sku} --image UbuntuLTS`}
-                  </div>
+                </>
+              ) : (
+                <div className="bg-green-600 text-white p-4 rounded shadow mb-4">
+                  <div className="font-semibold">No suitable SKU found</div>
                 </div>
-                <div className="docs-link">
-                  <a href={result.sku.docs_url} target="_blank" rel="noopener noreferrer">
-                    View Azure Learn docs for this VM family
-                  </a>
-                </div>
-              </>
-            ) : (
-              <div className="recommendation">
-                <div className="recommendation-title">No suitable SKU found</div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

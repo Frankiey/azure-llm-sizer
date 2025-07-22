@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
 import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
@@ -77,6 +77,22 @@ function App() {
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
 
   const ctx = ctxOptions[ctxIndex];
 
@@ -189,7 +205,7 @@ function App() {
                 <option value="name">Name</option>
               </select>
             </div>
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <label htmlFor="model-input" className="block mb-1 text-sm font-medium">Model</label>
               <input
                 id="model-input"

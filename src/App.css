@@ -34,10 +34,13 @@ body {
 
 .header {
     position: relative;
-    text-align: center;
     margin-bottom: 2rem;
     color: white;
-    padding-top: 4rem; /* space for GitHub links in the corner */
+}
+
+.header-text {
+    text-align: center;
+    padding-top: 3rem; /* push title below GitHub links */
 }
 
 .header h1 {
@@ -73,9 +76,10 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 0;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .github-star {

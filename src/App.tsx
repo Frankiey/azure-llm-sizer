@@ -121,8 +121,6 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <h1>🚀 Azure LLM Sizer</h1>
-        <p>Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
         <div className="github-links">
           <a
             href="https://github.com/Frankiey/azure-llm-sizer"
@@ -141,6 +139,10 @@ function App() {
             height="40"
             title="GitHub"
           ></iframe>
+        </div>
+        <div className="header-text">
+          <h1>🚀 Azure LLM Sizer</h1>
+          <p>Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
         </div>
       </div>
 

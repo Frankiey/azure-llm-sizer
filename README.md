@@ -19,6 +19,10 @@ npm install
 npm run dev
 ```
 
+This project requires **Node.js 20** or later. If the `dev` command fails with
+`vite: not found` or similar errors, make sure you are using Node 20 and have
+installed the dependencies with `npm install`.
+
 The app will be available at `http://localhost:5173`.
 
 ### Linting

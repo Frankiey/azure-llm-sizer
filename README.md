@@ -19,6 +19,10 @@ npm install
 npm run dev
 ```
 
+This project requires **Node.js 20** or later. If the `dev` command fails with
+`vite: not found` or similar errors, make sure you are using Node 20 and have
+installed the dependencies with `npm install`.
+
 The app will be available at `http://localhost:5173`.
 
 ### Linting
@@ -33,11 +37,14 @@ npm run lint
 npm run build
 ```
 
-Production files are emitted to the `dist/` directory. You can preview the build locally with:
+Production files are emitted to the `dist/` directory. Because the app is hosted under a sub-path on GitHub Pages, the built files expect to be served from `/azure-llm-sizer/`.
+You can preview the build locally with:
 
 ```bash
 npm run preview
 ```
+
+Then open `http://localhost:4173/azure-llm-sizer/` in your browser to view the preview.
 
 Deployment to GitHub Pages occurs automatically when changes are pushed to the `main` branch.
 

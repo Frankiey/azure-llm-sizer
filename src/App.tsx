@@ -215,7 +215,7 @@ function App() {
                 <div className="absolute right-3 top-3 text-gray-400">🔍</div>
               </div>
               {dropdownOpen && (
-                <div className="absolute z-20 w-full bg-white border-2 border-gray-200 rounded-lg shadow-xl mt-2 max-h-72 overflow-y-auto">
+                <div className="absolute z-30 w-full bg-white border-2 border-gray-200 rounded-lg shadow-xl mt-2 max-h-72 overflow-y-auto">
                   {filteredModels.map((m) => {
                     const name = m.model_id.split('/').pop() ?? m.model_id;
                     return (

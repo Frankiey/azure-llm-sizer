@@ -180,7 +180,7 @@ function App() {
 
       <div className="grid lg:grid-cols-5 gap-8 items-start">
         <div className="lg:col-span-2 space-y-6">
-          <div className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">
+          <div className="relative z-10 glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
               🤖 <span>Model Selection</span>
             </h2>

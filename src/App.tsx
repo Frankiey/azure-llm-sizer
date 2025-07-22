@@ -34,7 +34,8 @@ function App() {
   const query = useMemo(() => {
     const params = new URLSearchParams(window.location.search);
     const result = {
-      modelId: (models as ModelInfo[])[0].model_id,
+      // default to Meta-Llama-3-70B
+      modelId: 'meta-llama/Meta-Llama-3-70B',
       precision: 'fp16' as Precision,
       ctxIndex: 7,
       search: '',

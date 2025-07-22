@@ -78,6 +78,8 @@ function App() {
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const lastUpdated = useMemo(() => new Date().toLocaleDateString(), []);
+
   const ctx = ctxOptions[ctxIndex];
 
 
@@ -166,21 +168,27 @@ function App() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <header className="text-center mb-8 text-white">
-        <h1 className="text-4xl font-bold mb-2">🚀 Azure LLM Sizer</h1>
-        <p className="text-lg">Calculate the optimal Azure VM configuration for your Large Language Model workloads</p>
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <header className="text-center mb-12 text-white">
+        <div className="inline-block p-6 rounded-2xl glass-card mb-6 hover-lift transition-all duration-300">
+          <h1 className="text-5xl font-bold mb-3 gradient-text">🚀 Azure LLM Sizer</h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Calculate the optimal Azure VM configuration for your Large Language Model workloads with precision and ease
+          </p>
+        </div>
       </header>
 
-      <div className="flex flex-col md:flex-row gap-6 items-start">
-        <div className="bg-white rounded shadow p-6 flex-1 md:max-w-[40%]">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">🤖 Select Model</h2>
-            <div className="flex justify-end mb-4">
-              <label htmlFor="sort-select" className="mr-2 text-sm font-medium">Sort By</label>
+      <div className="grid lg:grid-cols-5 gap-8 items-start">
+        <div className="lg:col-span-2 space-y-6">
+          <div className="relative z-10 glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+              🤖 <span>Model Selection</span>
+            </h2>
+            <div className="flex justify-between items-center mb-4">
+              <label className="text-sm font-medium text-gray-600">Sort models by:</label>
               <select
                 id="sort-select"
-                className="border rounded px-2 py-1"
+                className="border-2 border-gray-200 rounded-lg px-3 py-2 focus:border-blue-500 focus:outline-none transition-colors"
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value as SortOption)}
               >
@@ -190,36 +198,39 @@ function App() {
               </select>
             </div>
             <div className="relative">
-              <label htmlFor="model-input" className="block mb-1 text-sm font-medium">Model</label>
-              <input
-                id="model-input"
-                className="w-full border rounded px-3 py-2"
-                type="text"
-                placeholder="Type to search..."
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setDropdownOpen(true);
-                }}
-                onFocus={() => setDropdownOpen(true)}
-              />
+              <label className="block mb-2 text-sm font-semibold text-gray-700">Select Model</label>
+              <div className="relative">
+                <input
+                  id="model-input"
+                  className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-blue-500 focus:outline-none transition-colors text-lg"
+                  placeholder="Search for models..."
+                  type="text"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setDropdownOpen(true);
+                  }}
+                  onFocus={() => setDropdownOpen(true)}
+                />
+                <div className="absolute right-3 top-3 text-gray-400">🔍</div>
+              </div>
               {dropdownOpen && (
-                <div className="absolute z-10 w-full bg-white border rounded shadow max-h-72 overflow-y-auto">
+                <div className="absolute z-30 w-full bg-white border-2 border-gray-200 rounded-lg shadow-xl mt-2 max-h-72 overflow-y-auto">
                   {filteredModels.map((m) => {
                     const name = m.model_id.split('/').pop() ?? m.model_id;
                     return (
                       <div
                         key={m.model_id}
-                        className={`px-4 py-3 border-b last:border-b-0 cursor-pointer ${m.model_id === modelId ? 'bg-blue-50 text-blue-700' : 'hover:bg-gray-100'}`}
-                        onClick={() => {
+                        className={`px-4 py-3 border-b last:border-b-0 cursor-pointer transition-colors ${m.model_id === modelId ? 'bg-blue-50 text-blue-700' : 'hover:bg-blue-50'}`}
+                        onMouseDown={() => {
                           setModelId(m.model_id);
                           setSearch(name);
                           setDropdownOpen(false);
                           calc();
                         }}
                       >
-                        <span className="block font-semibold">{highlightMatch(name)}</span>
-                        <span className="text-xs text-gray-500">{m.params_b}B parameters</span>
+                        <div className="font-semibold text-gray-800">{highlightMatch(name)}</div>
+                        <div className="text-sm text-gray-500">{m.params_b}B parameters</div>
                       </div>
                     );
                   })}
@@ -228,13 +239,16 @@ function App() {
             </div>
           </div>
 
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">⚙️ Configuration</h2>
-            <div className="flex flex-wrap gap-4 items-end mb-4">
-              <div className="flex flex-col flex-1 min-w-[200px]">
-                <label className="mb-1 text-sm font-medium">Precision</label>
+          <div className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+              ⚙️ <span>Configuration</span>
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <label className="block mb-2 text-sm font-semibold text-gray-700">Precision</label>
                 <select
-                  className="border rounded p-2"
+                  id="precision-select"
+                  className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-blue-500 focus:outline-none transition-colors"
                   value={precision}
                   onChange={(e) => setPrecision(e.target.value as Precision)}
                 >
@@ -245,135 +259,145 @@ function App() {
                   ))}
                 </select>
               </div>
-              <div className="flex flex-col flex-1 min-w-[200px]">
-                <label className="mb-1 text-sm font-medium">
-                  Context Length: <span id="context-value">{formatCtx(ctx)}</span>
+
+              <div>
+                <label className="block mb-2 text-sm font-semibold text-gray-700">
+                  Context Length: <span id="context-value" className="text-blue-600 font-bold">{formatCtx(ctx)}</span>
                 </label>
                 <input
+                  id="context-slider"
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none slider"
                   type="range"
-                  className="w-full"
                   min={0}
                   max={ctxOptions.length - 1}
                   step={1}
                   value={ctxIndex}
                   onChange={(e) => setCtxIndex(Number(e.target.value))}
                 />
-                <div className="flex justify-between text-xs mt-2">
+                <div className="flex justify-between text-xs text-gray-500 mt-2">
                   {ctxOptions.map((v) => (
                     <span key={v}>{formatCtx(v)}</span>
                   ))}
                 </div>
               </div>
+
+              <button
+                id="calculate-btn"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200"
+                onClick={handleCalc}
+                disabled={loading}
+              >
+                {loading ? '⏳ Calculating...' : '✨ Calculate Requirements'}
+              </button>
             </div>
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 disabled:opacity-50"
-              onClick={handleCalc}
-              disabled={loading}
-            >
-              {loading ? 'Calculating...' : 'Calculate Requirements'}
-            </button>
           </div>
         </div>
 
-        <div className="bg-white rounded shadow p-6 flex-1">
+        <div className="lg:col-span-3">
           {result && (
-            <div
-              className={`transition ${!loading ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-              id="results"
-            >
-              <h2 className="text-xl font-semibold text-blue-600 mb-4 flex items-center gap-2">📊 Results</h2>
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-white p-3 rounded shadow">
-                  <div className="text-lg mb-1">💾</div>
-                  <div className="text-xs text-gray-500 mb-1">Model Weights</div>
-                  <div className="font-bold text-blue-600" id="weights-value">
-                    {result.weights_gb.toFixed(2)} GB
+            <div id="results" className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300 fade-in">
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                📊 <span>Resource Requirements</span>
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">💾</span>
+                    <span className="text-xs text-gray-600 font-semibold">MODEL WEIGHTS</span>
                   </div>
-                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
-                    <div
-                      className="h-full bg-green-500"
-                      style={{ width: `${Math.min((result.weights_gb / MAX_MEM) * 100, 100)}%` }}
-                    />
+                  <div className="text-2xl font-bold text-green-700 mb-2">{result.weights_gb.toFixed(2)} GB</div>
+                  <div className="w-full h-2 bg-gray-200 rounded-full">
+                    <div className="h-full bg-green-500 rounded-full progress-bar" style={{ width: `${Math.min((result.weights_gb / MAX_MEM) * 100, 100)}%` }} />
                   </div>
                 </div>
-                <div className="bg-white p-3 rounded shadow">
-                  <div className="text-lg mb-1">🔄</div>
-                  <div className="text-xs text-gray-500 mb-1">KV Cache</div>
-                  <div className="font-bold text-blue-600" id="kv-value">
-                    {result.kv_gb.toFixed(2)} GB
+
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border-l-4 border-blue-500">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">🔄</span>
+                    <span className="text-xs text-gray-600 font-semibold">KV CACHE</span>
                   </div>
-                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
-                    <div
-                      className="h-full bg-green-500"
-                      style={{ width: `${Math.min((result.kv_gb / MAX_MEM) * 100, 100)}%` }}
-                    />
+                  <div className="text-2xl font-bold text-blue-700 mb-2">{result.kv_gb.toFixed(2)} GB</div>
+                  <div className="w-full h-2 bg-gray-200 rounded-full">
+                    <div className="h-full bg-blue-500 rounded-full progress-bar" style={{ width: `${Math.min((result.kv_gb / MAX_MEM) * 100, 100)}%` }} />
                   </div>
                 </div>
-                <div className="bg-white p-3 rounded shadow">
-                  <div className="text-lg mb-1">📈</div>
-                  <div className="text-xs text-gray-500 mb-1">Total Memory</div>
-                  <div className="font-bold text-blue-600" id="total-memory">
-                    {result.total_gb.toFixed(2)} GB
+
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border-l-4 border-purple-500">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">📈</span>
+                    <span className="text-xs text-gray-600 font-semibold">TOTAL MEMORY</span>
                   </div>
-                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
-                    <div
-                      className="h-full bg-green-500"
-                      style={{ width: `${Math.min((result.total_gb / MAX_MEM) * 100, 100)}%` }}
-                    />
+                  <div className="text-2xl font-bold text-purple-700 mb-2">{result.total_gb.toFixed(2)} GB</div>
+                  <div className="w-full h-2 bg-gray-200 rounded-full">
+                    <div className="h-full bg-purple-500 rounded-full progress-bar" style={{ width: `${Math.min((result.total_gb / MAX_MEM) * 100, 100)}%` }} />
                   </div>
                 </div>
-                <div className="bg-white p-3 rounded shadow">
-                  <div className="text-lg mb-1">🎮</div>
-                  <div className="text-xs text-gray-500 mb-1">GPUs Required</div>
-                  <div className="font-bold text-blue-600" id="gpu-count">
-                    {result.sku ? `${result.gpus} / ${result.sku.gpus_per_vm} per VM` : 'N/A'}
+
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl border-l-4 border-orange-500">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">🎮</span>
+                    <span className="text-xs text-gray-600 font-semibold">GPUS REQUIRED</span>
                   </div>
-                  <div className="w-full h-1 bg-gray-200 rounded mt-1">
-                    <div
-                      className="h-full bg-green-500"
-                      style={{ width: `${result.sku ? (result.gpus / result.sku.gpus_per_vm) * 100 : 0}%` }}
-                    />
+                  <div className="text-2xl font-bold text-orange-700 mb-2">{result.sku ? `${result.gpus} / ${result.sku.gpus_per_vm} per VM` : 'N/A'}</div>
+                  <div className="w-full h-2 bg-gray-200 rounded-full">
+                    <div className="h-full bg-orange-500 rounded-full progress-bar" style={{ width: `${result.sku ? Math.min((result.gpus / result.sku.gpus_per_vm) * 100, 100) : 0}%` }} />
                   </div>
                 </div>
               </div>
 
               {result.sku ? (
                 <>
-                  <div className="bg-green-600 text-white p-4 rounded shadow mb-4">
-                    <div className="font-semibold mb-1 flex items-center gap-2">💡 Recommended Configuration</div>
-                    <div id="recommendation-text">
-                      {`${result.sku.sku} (${result.sku.gpu_model} ${result.sku.vram_gb} GB) - Memory per GPU: ${(result.total_gb / result.gpus).toFixed(2)} GB`}
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg mb-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-2xl">💡</span>
+                      <h3 className="text-xl font-bold">Recommended Configuration</h3>
+                    </div>
+                    <div className="text-lg">
+                      <span className="font-semibold">{result.sku.sku}</span> ({result.sku.gpu_model} {result.sku.vram_gb} GB)
+                    </div>
+                    <div className="text-sm opacity-90 mt-2">
+                      Memory per GPU: {(result.total_gb / result.gpus).toFixed(2)} GB
                     </div>
                   </div>
-                  <div className="bg-neutral-800 text-white p-4 rounded shadow mb-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="text-cyan-400 font-semibold flex items-center gap-2">🔧 Azure CLI Command</div>
+
+                  <div className="bg-gray-900 text-white p-6 rounded-xl shadow-lg mb-6">
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">🔧</span>
+                        <span className="text-lg font-semibold text-cyan-400">Azure CLI Command</span>
+                      </div>
                       <button
-                        className="bg-blue-600 text-white rounded px-2 py-1"
+                        id="copy-btn"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
                         onClick={() =>
-                          handleCopy(`az vm create --name llm --size ${result.sku!.sku} --image UbuntuLTS`)
+                          handleCopy(`az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location eastus`)
                         }
                       >
-                        {copied ? 'Copied!' : 'Copy'}
+                        {copied ? '✅ Copied!' : '📋 Copy'}
                       </button>
                     </div>
-                    <div className="break-all text-sm" id="command-text">
-                      {`az vm create --name llm --size ${result.sku.sku} --image UbuntuLTS`}
+                    <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="cli-command">
+                      {`az vm create --name llm-vm --size ${result.sku.sku} --image Ubuntu2204 --location eastus`}
                     </div>
                   </div>
-                  <div className="text-right">
+
+                  <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
                     <a
                       href={result.sku.docs_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-600 hover:text-blue-800 underline font-medium"
                     >
-                      View Azure Learn docs for this VM family
+                      📚 View Azure Documentation
                     </a>
+                    <div className="text-gray-600">
+                      Last updated: <span id="last-updated">{lastUpdated}</span>
+                    </div>
                   </div>
                 </>
               ) : (
-                <div className="bg-green-600 text-white p-4 rounded shadow mb-4">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg mb-6">
                   <div className="font-semibold">No suitable SKU found</div>
                 </div>
               )}

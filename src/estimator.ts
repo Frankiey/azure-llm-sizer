@@ -54,7 +54,7 @@ export function estimateWithSku(input: EstimateFullInput): EstimateOutput {
   const base = estimate(input);
   let best: AzureGpuSku | undefined;
   let needed = 0;
-  for (const sku of input.skus) {
+  for (const sku of [...input.skus].sort((a, b) => a.vram_gb - b.vram_gb)) {
     const gpus = Math.ceil(base.total_gb / sku.vram_gb);
     if (gpus <= sku.gpus_per_vm) {
       best = sku;

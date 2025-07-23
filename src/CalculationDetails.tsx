@@ -4,7 +4,7 @@ interface Props {
 
 function CalculationDetails({ onClose }: Props) {
   return (
-    <div className="relative glass-card rounded-2xl shadow-xl p-6 mt-4 fade-in">
+    <div className="relative bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-xl border-l-4 border-yellow-500 shadow-lg fade-in mb-4">
       <button
         type="button"
         aria-label="Close details"
@@ -13,18 +13,21 @@ function CalculationDetails({ onClose }: Props) {
       >
         ✖
       </button>
-      <h3 className="text-xl font-bold text-gray-800 mb-4">Calculation details</h3>
-      <p className="text-gray-700 mb-2">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">ℹ️</span>
+        <h3 className="text-lg font-bold text-yellow-800">Calculation details</h3>
+      </div>
+      <p className="text-gray-800 mb-2">
         Memory requirements are derived from your selected model configuration.
         Model weights are computed as <code>parameters × bytes-per-parameter</code>
         based on the chosen precision.
       </p>
-      <p className="text-gray-700 mb-2">
+      <p className="text-gray-800 mb-2">
         The KV cache consumes
         <code>2 × layers × context × hidden × bytes × batch</code> with an
         additional 20% overhead for miscellaneous allocations.
       </p>
-      <p className="text-gray-700">
+      <p className="text-gray-800">
         This tool focuses on inference workloads. It finds the smallest Azure GPU
         VM SKU that can fit the total memory and reports the number of GPUs
         required.

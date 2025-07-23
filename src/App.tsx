@@ -312,7 +312,7 @@ function App() {
         <div className="lg:col-span-3">
           {result && (
             <div id="results" className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300 fade-in">
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
                   📊 <span>Resource Requirements</span>
                 </h2>
@@ -324,6 +324,7 @@ function App() {
                   {showDetails ? 'Hide details' : 'How it works?'}
                 </button>
               </div>
+              {showDetails && <CalculationDetails onClose={() => setShowDetails(false)} />}
 
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">

@@ -259,6 +259,17 @@ function App() {
                 </div>
               )}
             </div>
+            <div className="mt-4 text-center">
+              <a
+                id="hf-link"
+                href={`https://huggingface.co/${selectedModel.model_id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg transition-colors"
+              >
+                🤗 View on Hugging Face
+              </a>
+            </div>
           </div>
 
           <div className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">

@@ -188,6 +188,9 @@ function App() {
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Calculate the optimal Azure VM configuration for your Large Language Model workloads with precision and ease
           </p>
+          <p className="text-sm text-gray-600 mt-2 italic">
+            Estimates memory requirements for inference only
+          </p>
         </div>
       </header>
 
@@ -368,7 +371,7 @@ function App() {
                 </div>
               </div>
 
-              {showDetails && <CalculationDetails />}
+              {showDetails && <CalculationDetails onClose={() => setShowDetails(false)} />}
 
               {result.sku ? (
                 <>

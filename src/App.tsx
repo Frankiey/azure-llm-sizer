@@ -78,6 +78,7 @@ function App() {
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -187,7 +188,15 @@ function App() {
     });
   };
 
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    });
+  };
+
   return (
+    <>
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <header className="text-center mb-12 text-white">
         <div className="inline-block p-6 rounded-2xl glass-card mb-6 hover-lift transition-all duration-300">
@@ -441,6 +450,13 @@ function App() {
                     >
                       📚 View Azure Documentation
                     </a>
+                    <button
+                      id="share-link-btn"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                      onClick={handleCopyLink}
+                    >
+                      🔗 Copy share link
+                    </button>
                     <div className="text-gray-600">
                       Last updated: <span id="last-updated">{lastUpdated}</span>
                     </div>
@@ -456,6 +472,12 @@ function App() {
         </div>
       </div>
     </div>
+    {linkCopied && (
+      <div className="fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded shadow-lg fade-in">
+        Link copied to clipboard!
+      </div>
+    )}
+    </>
   );
 }
 

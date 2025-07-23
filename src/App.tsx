@@ -325,7 +325,6 @@ function App() {
                 </button>
               </div>
               {showDetails && <CalculationDetails onClose={() => setShowDetails(false)} />}
-
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">
                   <div className="flex items-center justify-between mb-2">
@@ -371,8 +370,6 @@ function App() {
                   </div>
                 </div>
               </div>
-
-              {showDetails && <CalculationDetails onClose={() => setShowDetails(false)} />}
 
               {result.sku ? (
                 <>

@@ -4,7 +4,7 @@
 
 Try the hosted version at [frankiey.github.io/azure-llm-sizer](https://frankiey.github.io/azure-llm-sizer).
 
-The results section includes a **How it works?** link that expands a short explanation of the memory estimation formula. The popup appears as a yellow info card with a close button.
+The results section includes a **How it works?** link that expands a short explanation of the memory estimation formula.
 
 The tool estimates GPU memory for inference workloads only.
 

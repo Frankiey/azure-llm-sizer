@@ -259,6 +259,17 @@ function App() {
                 </div>
               )}
             </div>
+            <div className="mt-4 text-center">
+              <a
+                id="hf-link"
+                href={`https://huggingface.co/${selectedModel.model_id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 cursor-pointer"
+              >
+                🤗 View on Hugging Face
+              </a>
+            </div>
           </div>
 
           <div className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300">
@@ -305,7 +316,7 @@ function App() {
 
               <button
                 id="calculate-btn"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 cursor-pointer"
                 onClick={handleCalc}
                 disabled={loading}
               >

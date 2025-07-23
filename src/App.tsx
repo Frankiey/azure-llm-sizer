@@ -64,6 +64,9 @@ function App() {
         if (idx !== -1) result.ctxIndex = idx;
       }
     }
+    if (!result.search) {
+      result.search = result.modelId.split('/').pop() ?? result.modelId;
+    }
     return result;
   }, []);
 

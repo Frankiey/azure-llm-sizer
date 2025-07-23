@@ -167,7 +167,7 @@ function App() {
   useEffect(() => {
     calc();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [modelId]);
 
   const handleCalc = () => {
     setLoading(true);
@@ -249,7 +249,6 @@ function App() {
                           setModelId(m.model_id);
                           setSearch(name);
                           setDropdownOpen(false);
-                          calc();
                         }}
                       >
                         <div className="font-semibold text-gray-800">{highlightMatch(name)}</div>

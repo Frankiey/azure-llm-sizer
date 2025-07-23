@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
+import CalculationDetails from './CalculationDetails';
 import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
 import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
@@ -77,6 +78,7 @@ function App() {
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const lastUpdated = useMemo(() => new Date().toLocaleDateString(), []);
@@ -307,9 +309,18 @@ function App() {
         <div className="lg:col-span-3">
           {result && (
             <div id="results" className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300 fade-in">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                📊 <span>Resource Requirements</span>
-              </h2>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
+                  📊 <span>Resource Requirements</span>
+                </h2>
+                <button
+                  id="details-btn"
+                  className="text-sm text-blue-600 hover:underline"
+                  onClick={() => setShowDetails((v) => !v)}
+                >
+                  {showDetails ? 'Hide details' : 'How it works?'}
+                </button>
+              </div>
 
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">
@@ -356,6 +367,8 @@ function App() {
                   </div>
                 </div>
               </div>
+
+              {showDetails && <CalculationDetails />}
 
               {result.sku ? (
                 <>

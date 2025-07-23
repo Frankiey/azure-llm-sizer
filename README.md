@@ -2,6 +2,10 @@
 
 **Azure LLM Sizer** is a small web application that estimates the GPU memory requirements for running large language models on Azure. It is built with [Vite](https://vitejs.dev/), React and TypeScript.
 
+Try the hosted version at [frankiey.github.io/azure-llm-sizer](https://frankiey.github.io/azure-llm-sizer).
+
+This is an independent project and is not affiliated with Microsoft.
+
 ## Project structure
 
 - `src/` – React components and the memory estimation logic.
@@ -70,3 +74,11 @@ python3 datapipeline/update_models.py
 ```
 
 The script enforces the JSON schema with `pydantic` and fetches each model's configuration directly from the hub. Models that require accepting a license on Hugging Face are skipped during the update and keep their existing values.
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

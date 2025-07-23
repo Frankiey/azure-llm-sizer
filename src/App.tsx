@@ -83,6 +83,10 @@ function App() {
 
   const lastUpdated = useMemo(() => new Date().toLocaleDateString(), []);
 
+  const selectedModel = useMemo(() => {
+    return (models as ModelInfo[]).find((m) => m.model_id === modelId)!;
+  }, [modelId]);
+
   const ctx = ctxOptions[ctxIndex];
 
   useEffect(() => {
@@ -143,7 +147,7 @@ function App() {
   };
 
   const calc = () => {
-    const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
+    const model = selectedModel;
     if (!model) return;
     const input: EstimateFullInput = {
       params_b: model.params_b,
@@ -324,7 +328,15 @@ function App() {
                   {showDetails ? 'Hide details' : 'How it works?'}
                 </button>
               </div>
-              {showDetails && <CalculationDetails onClose={() => setShowDetails(false)} />}
+              {showDetails && (
+                <CalculationDetails
+                  onClose={() => setShowDetails(false)}
+                  model={selectedModel}
+                  ctx={ctx}
+                  precision={precision}
+                  result={result}
+                />
+              )}
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">
                   <div className="flex items-center justify-between mb-2">

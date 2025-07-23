@@ -265,7 +265,7 @@ function App() {
                 href={`https://huggingface.co/${selectedModel.model_id}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200"
               >
                 🤗 View on Hugging Face
               </a>

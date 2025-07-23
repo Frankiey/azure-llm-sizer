@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
+import CalculationDetails from './CalculationDetails';
 import models from '../data/models.json';
 import skus from '../data/azure-gpus.json';
 import type { EstimateFullInput, Precision, AzureGpuSku } from './estimator';
@@ -80,9 +81,14 @@ function App() {
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const lastUpdated = useMemo(() => new Date().toLocaleDateString(), []);
+
+  const selectedModel = useMemo(() => {
+    return (models as ModelInfo[]).find((m) => m.model_id === modelId)!;
+  }, [modelId]);
 
   const ctx = ctxOptions[ctxIndex];
 
@@ -144,7 +150,7 @@ function App() {
   };
 
   const calc = () => {
-    const model = (models as ModelInfo[]).find((m) => m.model_id === modelId);
+    const model = selectedModel;
     if (!model) return;
     const input: EstimateFullInput = {
       params_b: model.params_b,
@@ -188,6 +194,9 @@ function App() {
           <h1 className="text-5xl font-bold mb-3 gradient-text">🚀 Azure LLM Sizer</h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Calculate the optimal Azure VM configuration for your Large Language Model workloads with precision and ease
+          </p>
+          <p className="text-sm text-gray-600 mt-2 italic">
+            Estimates memory requirements for inference only
           </p>
         </div>
       </header>
@@ -310,10 +319,27 @@ function App() {
         <div className="lg:col-span-3">
           {result && (
             <div id="results" className="glass-card rounded-2xl shadow-xl p-6 hover-lift transition-all duration-300 fade-in">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                📊 <span>Resource Requirements</span>
-              </h2>
-
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
+                  📊 <span>Resource Requirements</span>
+                </h2>
+                <button
+                  id="details-btn"
+                  className="text-sm text-blue-600 hover:underline"
+                  onClick={() => setShowDetails((v) => !v)}
+                >
+                  {showDetails ? 'Hide details' : 'How it works?'}
+                </button>
+              </div>
+              {showDetails && (
+                <CalculationDetails
+                  onClose={() => setShowDetails(false)}
+                  model={selectedModel}
+                  ctx={ctx}
+                  precision={precision}
+                  result={result}
+                />
+              )}
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border-l-4 border-green-500">
                   <div className="flex items-center justify-between mb-2">

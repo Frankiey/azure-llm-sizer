@@ -77,7 +77,7 @@ function App() {
   const [ctxIndex, setCtxIndex] = useState<number>(query.ctxIndex);
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
@@ -181,10 +181,10 @@ function App() {
   const formatCtx = (v: number) => (v >= 1024 ? `${v / 1024}k` : v.toString());
 
 
-  const handleCopy = (text: string) => {
+  const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopied(id);
+      setTimeout(() => setCopied(null), 2000);
     });
   };
 
@@ -430,10 +430,13 @@ function App() {
                         id="copy-btn-vm"
                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
                         onClick={() =>
-                          handleCopy(`az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location swedencentral`)
+                          handleCopy(
+                            `az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location swedencentral`,
+                            'vm'
+                          )
                         }
                       >
-                        {copied ? '✅ Copied!' : '📋 Copy'}
+                        {copied === 'vm' ? '✅ Copied!' : '📋 Copy'}
                       </button>
                     </div>
                     <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="cli-command">
@@ -452,11 +455,12 @@ function App() {
                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
                         onClick={() =>
                           handleCopy(
-                            `az ml compute create --name llm-vm --size ${result.sku!.sku} --type ComputeInstance --resource-group <your-resource-group> --workspace-name <your-workspace-name> --location swedencentral`
+                            `az ml compute create --name llm-vm --size ${result.sku!.sku} --type ComputeInstance --resource-group <your-resource-group> --workspace-name <your-workspace-name> --location swedencentral`,
+                            'aml'
                           )
                         }
                       >
-                        {copied ? '✅ Copied!' : '📋 Copy'}
+                        {copied === 'aml' ? '✅ Copied!' : '📋 Copy'}
                       </button>
                     </div>
                     <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="aml-cli-command">

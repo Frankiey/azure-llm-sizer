@@ -427,36 +427,61 @@ function App() {
                         <span className="text-lg font-semibold text-cyan-400">Azure CLI Command</span>
                       </div>
                       <button
-                        id="copy-btn"
+                        id="copy-btn-vm"
                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
                         onClick={() =>
-                          handleCopy(`az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location eastus`)
+                          handleCopy(`az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location swedencentral`)
                         }
                       >
                         {copied ? '✅ Copied!' : '📋 Copy'}
                       </button>
                     </div>
                     <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="cli-command">
-                      {`az vm create --name llm-vm --size ${result.sku.sku} --image Ubuntu2204 --location eastus`}
+                      {`az vm create --name llm-vm --size ${result.sku.sku} --image Ubuntu2204 --location swedencentral`}
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
-                    <a
-                      href={result.sku.docs_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline font-medium"
-                    >
-                      📚 View Azure Documentation
-                    </a>
-                    <button
-                      id="share-link-btn"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
-                      onClick={handleCopyLink}
-                    >
-                      🔗 Copy share link
-                    </button>
+                  <div className="bg-gray-900 text-white p-6 rounded-xl shadow-lg mb-6">
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">🧪</span>
+                        <span className="text-lg font-semibold text-cyan-400">Azure ML CLI Command</span>
+                      </div>
+                      <button
+                        id="copy-btn-aml"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2"
+                        onClick={() =>
+                          handleCopy(
+                            `az ml compute create --name llm-vm --size ${result.sku!.sku} --type ComputeInstance --resource-group <your-resource-group> --workspace-name <your-workspace-name> --location swedencentral`
+                          )
+                        }
+                      >
+                        {copied ? '✅ Copied!' : '📋 Copy'}
+                      </button>
+                    </div>
+                    <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="aml-cli-command">
+                      {`az ml compute create --name llm-vm --size ${result.sku.sku} --type ComputeInstance --resource-group <your-resource-group> --workspace-name <your-workspace-name> --location swedencentral`}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row justify-between items-center text-sm gap-4">
+                    <div className="flex items-center gap-4">
+                      <a
+                        href={result.sku.docs_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline font-medium"
+                      >
+                        📚 View Azure Documentation
+                      </a>
+                      <button
+                        id="share-link-btn"
+                        className="flex items-center gap-1 text-blue-600 hover:text-blue-800 underline"
+                        onClick={handleCopyLink}
+                      >
+                        🔗 Copy share link
+                      </button>
+                    </div>
                     <div className="text-gray-600">
                       Last updated: <span id="last-updated">{lastUpdated}</span>
                     </div>

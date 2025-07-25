@@ -77,7 +77,7 @@ function App() {
   const [ctxIndex, setCtxIndex] = useState<number>(query.ctxIndex);
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [sortOption, setSortOption] = useState<SortOption>('size_desc');
   const [search, setSearch] = useState(query.search);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -182,12 +182,13 @@ function App() {
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setToastMessage('Copied to clipboard!');
+      setTimeout(() => setToastMessage(null), 2000);
     });
   };
 
   return (
+    <>
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <header className="text-center mb-12 text-white">
         <div className="inline-block p-6 rounded-2xl glass-card mb-6 hover-lift transition-all duration-300">
@@ -333,13 +334,22 @@ function App() {
                 <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
                   📊 <span>Resource Requirements</span>
                 </h2>
-                <button
-                  id="details-btn"
-                  className="text-sm text-blue-600 hover:underline"
-                  onClick={() => setShowDetails((v) => !v)}
-                >
-                  {showDetails ? 'Hide details' : 'How it works?'}
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    id="share-link-btn"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                    onClick={() => handleCopy(window.location.href)}
+                  >
+                    🔗 Copy share link
+                  </button>
+                  <button
+                    id="details-btn"
+                    className="text-sm text-blue-600 hover:underline"
+                    onClick={() => setShowDetails((v) => !v)}
+                  >
+                    {showDetails ? 'Hide details' : 'How it works?'}
+                  </button>
+                </div>
               </div>
               {showDetails && (
                 <CalculationDetails
@@ -424,7 +434,7 @@ function App() {
                           handleCopy(`az vm create --name llm-vm --size ${result.sku!.sku} --image Ubuntu2204 --location swedencentral`)
                         }
                       >
-                        {copied ? '✅ Copied!' : '📋 Copy'}
+                        📋 Copy
                       </button>
                     </div>
                     <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="cli-command">
@@ -447,7 +457,7 @@ function App() {
                           )
                         }
                       >
-                        {copied ? '✅ Copied!' : '📋 Copy'}
+                        📋 Copy
                       </button>
                     </div>
                     <div className="bg-gray-800 p-3 rounded-lg break-all text-sm" id="aml-cli-command">
@@ -479,6 +489,12 @@ function App() {
         </div>
       </div>
     </div>
+    {toastMessage && (
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg fade-in">
+        {toastMessage}
+      </div>
+    )}
+    </>
   );
 }
 

@@ -474,6 +474,12 @@ function App() {
                     >
                       📚 View Azure Documentation
                     </a>
+                    <button
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                      onClick={() => handleCopy(window.location.href)}
+                    >
+                      🔗 Copy share link
+                    </button>
                     <div className="text-gray-600">
                       Last updated: <span id="last-updated">{lastUpdated}</span>
                     </div>

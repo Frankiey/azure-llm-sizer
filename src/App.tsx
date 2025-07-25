@@ -336,13 +336,6 @@ function App() {
                 </h2>
                 <div className="flex gap-2">
                   <button
-                    id="share-link-btn"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
-                    onClick={() => handleCopy(window.location.href)}
-                  >
-                    🔗 Copy share link
-                  </button>
-                  <button
                     id="details-btn"
                     className="text-sm text-blue-600 hover:underline"
                     onClick={() => setShowDetails((v) => !v)}

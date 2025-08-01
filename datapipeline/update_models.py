@@ -11,60 +11,153 @@ from huggingface_hub.utils import GatedRepoError, HfHubHTTPError
 from pydantic import BaseModel, Field
 import sys
 
+
 CATALOG = [
-    # Small to medium models
-    {"model_id": "microsoft/phi-1", "params_b": 1.3, "layers": 24, "hidden": 2048, "moe_active_ratio": 0},
-    {"model_id": "stabilityai/stablelm-2-zephyr-1_6b", "params_b": 1.6, "layers": 24, "hidden": 2048, "moe_active_ratio": 0},
-    {"model_id": "microsoft/phi-2", "params_b": 2.7, "layers": 32, "hidden": 2560, "moe_active_ratio": 0},
-    {"model_id": "microsoft/phi-3-mini-128k-instruct", "params_b": 3.8, "layers": 32, "hidden": 3072, "moe_active_ratio": 0},
-    {"model_id": "stabilityai/stablelm-zephyr-3b", "params_b": 3.0, "layers": 32, "hidden": 2560, "moe_active_ratio": 0},
-    {"model_id": "EleutherAI/gpt-j-6B", "params_b": 6, "layers": 28, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "mosaicml/mpt-7b", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "microsoft/Phi-3-small-8k-instruct", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "meta-llama/Llama-2-7b-hf", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "tiiuae/falcon-7b", "params_b": 7, "layers": 32, "hidden": 4544, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-7B-v0.1", "params_b": 7.3, "layers": 32, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "google/gemma-7b", "params_b": 7.0, "layers": 28, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mixtral-8x7B", "params_b": 56, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.23},
-    {"model_id": "meta-llama/Meta-Llama-3-8B", "params_b": 8.0, "layers": 32, "hidden": 4096, "moe_active_ratio": 0},
-    {"model_id": "meta-llama/Llama-2-13b-hf", "params_b": 13, "layers": 40, "hidden": 5120, "moe_active_ratio": 0},
-    {"model_id": "microsoft/phi-4", "params_b": 14, "layers": 40, "hidden": 5120, "moe_active_ratio": 0},
-    {"model_id": "EleutherAI/gpt-neox-20b", "params_b": 20, "layers": 44, "hidden": 6144, "moe_active_ratio": 0},
-    {"model_id": "mosaicml/mpt-30b", "params_b": 30, "layers": 48, "hidden": 7168, "moe_active_ratio": 0},
-    {"model_id": "microsoft/Phi-3.5-MoE-instruct", "params_b": 61, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.125},
-    {"model_id": "meta-llama/Meta-Llama-3-70B", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0},
-    {"model_id": "meta-llama/Llama-2-70b-hf", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0},
-    {"model_id": "tiiuae/falcon-180B", "params_b": 180, "layers": 120, "hidden": 12288, "moe_active_ratio": 0},
-    {"model_id": "THUDM/GLM-130B", "params_b": 130, "layers": 70, "hidden": 12288, "moe_active_ratio": 0},
-    {"model_id": "bigscience/bloom", "params_b": 176, "layers": 70, "hidden": 14336, "moe_active_ratio": 0},
-    # Additional models from community lists
-    {"model_id": "deepseek-ai/DeepSeek-R1-0528", "params_b": 685, "layers": 0, "hidden": 0, "moe_active_ratio": 0.05},
-    {"model_id": "deepseek-ai/DeepSeek-R1", "params_b": 685, "layers": 0, "hidden": 0, "moe_active_ratio": 0.05},
-    {"model_id": "deepseek-ai/DeepSeek-V3-0324", "params_b": 671, "layers": 0, "hidden": 0, "moe_active_ratio": 0.06},
-    {"model_id": "deepseek-ai/DeepSeek-V3", "params_b": 671, "layers": 0, "hidden": 0, "moe_active_ratio": 0.06},
-    {"model_id": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B", "params_b": 8.19, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B", "params_b": 32, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B", "params_b": 14, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B", "params_b": 70, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen3-4B", "params_b": 4.02, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen3-8B", "params_b": 8.19, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen3-14B", "params_b": 14.8, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen3-30B-A3B", "params_b": 30.5, "layers": 0, "hidden": 0, "moe_active_ratio": 0.11},
-    {"model_id": "Qwen/Qwen3-32B", "params_b": 32.8, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen3-235B-A22B", "params_b": 235, "layers": 0, "hidden": 0, "moe_active_ratio": 0.09},
-    {"model_id": "MiniMaxAI/MiniMax-M1-80k", "params_b": 456, "layers": 0, "hidden": 0, "moe_active_ratio": 0.1},
-    {"model_id": "MiniMaxAI/MiniMax-M1-40k", "params_b": 456, "layers": 0, "hidden": 0, "moe_active_ratio": 0.1},
-    {"model_id": "MiniMaxAI/MiniMax-Text-01", "params_b": 456, "layers": 0, "hidden": 0, "moe_active_ratio": 0.1},
-    {"model_id": "moonshotai/Kimi-K2-Instruct", "params_b": 32, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "RekaAI/reka-flash-3", "params_b": 21, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-Small-3.2", "params_b": 24, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-Small-3.1", "params_b": 24, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-Small-3", "params_b": 24, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-Large-2", "params_b": 123, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "mistralai/Mistral-Large-2-2024", "params_b": 123, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Cohere/command-a", "params_b": 111, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
-    {"model_id": "Qwen/Qwen2.5-Instruct-72B", "params_b": 72, "layers": 0, "hidden": 0, "moe_active_ratio": 0},
+    # Deepseek R1
+
+    {"model_id": "deepseek-ai/DeepSeek-R1", "params_b": 685.0, "layers": 61, "hidden": 7168,  "moe_active_ratio": 0.05} ,
+
+    # DeepSeek R1 distills
+    {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B", "params_b": 32, "layers": 64, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    # {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B", "params_b": 70, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B", "params_b": 14, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B", "params_b": 8, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", "params_b": 1.5, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+
+    # DeepSeek V2 line
+    # {"model_id": "deepseek-ai/DeepSeek-V2-Chat", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-V2-Chat-0628", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-V2-Lite", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+
+    # DeepSeek V1 LLM
+    # {"model_id": "deepseek-ai/deepseek-llm-67b-chat", "params_b": 67, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    # DeepSeek Coder V2
+    # {"model_id": "deepseek-ai/DeepSeek-Coder-V2-Instruct", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-Coder-V2-Instruct-0724", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-Coder-V2-Lite-Base", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+
+    # Qwen / QwQ
+    {"model_id": "Qwen/QwQ-32B-Preview", "params_b": 32, "layers": 64, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "Qwen/Qwen2.5-72B", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-72B-Instruct", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-32B-Instruct", "params_b": 32, "layers": 48, "hidden": 6656, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Coder-32B", "params_b": 32, "layers": 48, "hidden": 6656, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Coder-32B-Instruct", "params_b": 32, "layers": 48, "hidden": 6656, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Coder-7B", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Coder-7B-Instruct", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "Qwen/Qwen1.5-110B", "params_b": 110, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "Qwen/Qwen1.5-110B-Chat", "params_b": 110, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    {"model_id": "Qwen/Qwen2-72B", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "Qwen/Qwen2-72B-Instruct", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    {"model_id": "Qwen/Qwen2.5-VL-72B-Instruct", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Math-72B", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Math-72B-Instruct", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "Qwen/Qwen2.5-Math-PRM-72B", "params_b": 72, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "Qwen/Qwen1.5-14B-Chat", "params_b": 14, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    # Meta - Llama 3.x, 2
+    {"model_id": "meta-llama/Llama-3.1-405B", "params_b": 405, "layers": 126, "hidden": 16384, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.1-405B-Instruct", "params_b": 405, "layers": 126, "hidden": 16384, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "NousResearch/Hermes-3-Llama-3.1-405B", "params_b": 405, "layers": 126, "hidden": 16384, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "meta-llama/Llama-3.3-70B-Instruct", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "meta-llama/Meta-Llama-3-70B", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "meta-llama/Meta-Llama-3-70B-Instruct", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "meta-llama/Meta-Llama-3-8B", "params_b": 8, "layers": 32, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "meta-llama/Meta-Llama-3-8B-Instruct", "params_b": 8, "layers": 32, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 8192},
+
+    {"model_id": "meta-llama/Llama-3.2-90B-Vision", "params_b": 90, "layers": 80, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-90B-Vision-Instruct", "params_b": 90, "layers": 80, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-11B-Vision", "params_b": 11, "layers": 36, "hidden": 6656, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-11B-Vision-Instruct", "params_b": 11, "layers": 36, "hidden": 6656, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-3B", "params_b": 3, "layers": 28, "hidden": 3072, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-3B-Instruct", "params_b": 3, "layers": 28, "hidden": 3072, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-1B", "params_b": 1, "layers": 16, "hidden": 2048, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "meta-llama/Llama-3.2-1B-Instruct", "params_b": 1, "layers": 16, "hidden": 2048, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "meta-llama/Llama-2-70b-chat-hf", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 4096},
+    {"model_id": "meta-llama/Llama-2-13b-chat-hf", "params_b": 13, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 4096},
+    {"model_id": "meta-llama/Llama-2-7b-chat-hf", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 4096},
+
+    # Mixtral / Mistral / Codestral / Pixtral / NeMo
+    {"model_id": "mistralai/Mixtral-8x22B-v0.1", "params_b": 176, "layers": 56, "hidden": 6144, "moe_active_ratio": 0.25, "ctx_len": 32768},
+    {"model_id": "mistralai/Mixtral-8x22B-Instruct-v0.1", "params_b": 176, "layers": 56, "hidden": 6144, "moe_active_ratio": 0.25, "ctx_len": 32768},
+    {"model_id": "mistralai/Mixtral-8x7B-v0.1", "params_b": 56, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.25, "ctx_len": 32768},
+    {"model_id": "mistralai/Mixtral-8x7B-Instruct-v0.1", "params_b": 56, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.25, "ctx_len": 32768},
+
+    {"model_id": "mistralai/Mistral-7B-v0.1", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "mistralai/Mistral-7B-Instruct-v0.2", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 8192},
+
+    {"model_id": "mistralai/Mistral-Large-Instruct-2407", "params_b": 123, "layers": 80, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 128000},
+    {"model_id": "mistralai/Mistral-Large-Instruct-2411", "params_b": 123, "layers": 80, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 128000},
+
+    {"model_id": "mistralai/Codestral-22B-v0.1", "params_b": 22, "layers": 52, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "mistralai/Mamba-Codestral-7B-v0.1", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    {"model_id": "mistralai/Pixtral-12B-2409", "params_b": 12, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "mistralai/Pixtral-12B-Base-2409", "params_b": 12, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "mistralai/Pixtral-Large-Instruct-2411", "params_b": 34, "layers": 64, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    {"model_id": "mistralai/Mistral-Nemo-Base-2407", "params_b": 12, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "mistralai/Mistral-Nemo-Instruct-2407", "params_b": 12, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "nvidia/Mistral-NeMo-12B-Instruct", "params_b": 12, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+
+    # Nemotron
+    # {"model_id": "nvidia/Nemotron-4-340B-Base", "params_b": 340, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "nvidia/Nemotron-4-340B-Instruct", "params_b": 340, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    # {"model_id": "nvidia/Nemotron-4-340B-Reward", "params_b": 340, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+
+    # Cohere (Command family)
+    # {"model_id": "CohereLabs/c4ai-command-r-plus-08-2024", "params_b": None, "layers": None, "hidden": None, "moe_active_ratio": 0.0, "ctx_len": None},
+    {"model_id": "CohereForAI/command-r", "params_b": 104, "layers": 64, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "CohereForAI/c4ai-command-r7b-12-2024", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "CohereLabs/c4ai-command-a-03-2025", "params_b": 104, "layers": 64, "hidden": 12288, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    # Microsoft Phi
+    {"model_id": "microsoft/phi-4", "params_b": 14, "layers": 48, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "microsoft/Phi-3-medium-128k-instruct", "params_b": 14, "layers": 40, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 128000},
+    {"model_id": "microsoft/Phi-3-mini-128k-instruct", "params_b": 3.8, "layers": 32, "hidden": 3072, "moe_active_ratio": 0.0, "ctx_len": 128000},
+
+    # Databricks DBRX
+    {"model_id": "databricks/dbrx-base", "params_b": 132, "layers": 40, "hidden": 12288, "moe_active_ratio": 0.25, "ctx_len": 32768},
+    {"model_id": "databricks/dbrx-instruct", "params_b": 132, "layers": 40, "hidden": 12288, "moe_active_ratio": 0.25, "ctx_len": 32768},
+
+    # AI21 Jamba
+    {"model_id": "ai21labs/AI21-Jamba-Large-1.7", "params_b": 52, "layers": 48, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 200000},
+    {"model_id": "ai21labs/AI21-Jamba-Mini-1.7", "params_b": 12, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 200000},
+    {"model_id": "ai21labs/AI21-Jamba-Large-1.6", "params_b": 52, "layers": 48, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 200000},
+    {"model_id": "ai21labs/AI21-Jamba-Mini-1.6", "params_b": 12, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 200000},
+    {"model_id": "ai21labs/AI21-Jamba-Large-1.5", "params_b": 52, "layers": 48, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 200000},
+    {"model_id": "ai21labs/AI21-Jamba-Mini-1.5", "params_b": 12, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 200000},
+
+    # Nous Hermes / DeepHermes
+    {"model_id": "NousResearch/Hermes-3-Llama-3.1-70B", "params_b": 70, "layers": 80, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "NousResearch/Hermes-3-Llama-3.1-8B", "params_b": 8, "layers": 32, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 131072},
+    {"model_id": "NousResearch/Hermes-3-Llama-3.2-3B", "params_b": 3, "layers": 28, "hidden": 3072, "moe_active_ratio": 0.0, "ctx_len": 131072},
+
+    {"model_id": "NousResearch/DeepHermes-3-Mistral-24B-Preview", "params_b": 24, "layers": 40, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 32768},
+    {"model_id": "NousResearch/DeepHermes-3-Llama-3-8B-Preview", "params_b": 8, "layers": 32, "hidden": 8192, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "NousResearch/DeepHermes-3-Llama-3-3B-Preview", "params_b": 3, "layers": 28, "hidden": 3072, "moe_active_ratio": 0.0, "ctx_len": 8192},
+
+    # OpenChat
+    {"model_id": "openchat/openchat_3.5", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "openchat/openchat-3.5-0106", "params_b": 7, "layers": 32, "hidden": 4096, "moe_active_ratio": 0.0, "ctx_len": 8192},
+
+    # Google Gemma 2
+    {"model_id": "google/gemma-2-27b", "params_b": 27, "layers": 46, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "google/gemma-2-27b-it", "params_b": 27, "layers": 46, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "google/gemma-2-9b", "params_b": 9, "layers": 42, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 8192},
+    {"model_id": "google/gemma-2-9b-it", "params_b": 9, "layers": 42, "hidden": 5120, "moe_active_ratio": 0.0, "ctx_len": 8192}
 ]
+
 
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "models.json"
 

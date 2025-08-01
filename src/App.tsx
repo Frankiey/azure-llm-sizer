@@ -450,7 +450,7 @@ function App() {
                     <span className="text-2xl">🎮</span>
                     <span className="text-xs text-gray-600 font-semibold">GPUS REQUIRED</span>
                   </div>
-                  <div className="text-2xl font-bold text-orange-700 mb-2">{result.sku ? `${result.gpus} / ${result.sku.gpus_per_vm} per VM` : 'N/A'}</div>
+                  <div className="text-2xl font-bold text-orange-700 mb-2">{result.sku ? `${result.gpus} of ${result.sku.gpus_per_vm} GPUs in this VM are required` : 'N/A'}</div>
                   <div className="w-full h-2 bg-gray-200 rounded-full">
                     <div className="h-full bg-orange-500 rounded-full progress-bar" style={{ width: `${result.sku ? Math.min((result.gpus / result.sku.gpus_per_vm) * 100, 100) : 0}%` }} />
                   </div>

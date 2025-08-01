@@ -113,6 +113,11 @@ function App() {
     [selectedModel]
   );
 
+  const maxCtxPercent = useMemo(
+    () => (maxCtxIdx / (ctxOptions.length - 1)) * 100,
+    [maxCtxIdx]
+  );
+
   const ctx = Math.min(
     ctxOptions[ctxIndex],
     selectedModel.ctx_len ?? ctxOptions[ctxIndex]
@@ -332,18 +337,29 @@ function App() {
                 <label className="block mb-2 text-sm font-semibold text-gray-700">
                   Context Length: <span id="context-value" className="text-blue-600 font-bold">{formatCtx(ctx)}</span>
                 </label>
-                <input
-                  id="context-slider"
-                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none slider"
-                  type="range"
-                  min={0}
-                  max={ctxOptions.length - 1}
-                  step={1}
-                  value={ctxIndex}
-                  onChange={(e) =>
-                    setCtxIndex(Math.min(Number(e.target.value), maxCtxIdx))
-                  }
-                />
+                <div className="relative">
+                  {selectedModel.ctx_len && maxCtxIdx < ctxOptions.length - 1 && (
+                    <div
+                      className="absolute -top-6 text-blue-600 text-xs font-semibold pointer-events-none transform -translate-x-1/2"
+                      style={{ left: `${maxCtxPercent}%` }}
+                    >
+                      <span className="block leading-none">▼</span>
+                      <span className="leading-none">limit</span>
+                    </div>
+                  )}
+                  <input
+                    id="context-slider"
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none slider"
+                    type="range"
+                    min={0}
+                    max={ctxOptions.length - 1}
+                    step={1}
+                    value={ctxIndex}
+                    onChange={(e) =>
+                      setCtxIndex(Math.min(Number(e.target.value), maxCtxIdx))
+                    }
+                  />
+                </div>
                 <div className="flex justify-between text-xs text-gray-500 mt-2">
                   {ctxOptions.map((v) => (
                     <span key={v}>{formatCtx(v)}</span>

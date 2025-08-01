@@ -11,6 +11,7 @@ interface ModelInfo {
   layers: number;
   hidden: number;
   moe_active_ratio: number;
+  ctx_len?: number;
 }
 
 type SortOption = 'size_desc' | 'size_asc' | 'name';
@@ -28,19 +29,25 @@ const ctxOptions = [
   262144,
 ];
 
+const ctxIndexFor = (v: number): number => {
+  const idx = ctxOptions.findIndex((c) => c >= v);
+  return idx === -1 ? ctxOptions.length - 1 : idx;
+};
+
 const MAX_MEM = 160; // for progress bar scaling
 
 function App() {
   // read configuration from query parameters before initializing state
   const query = useMemo(() => {
     const params = new URLSearchParams(window.location.search);
+
     const result = {
-      // default to Meta-Llama-3-70B
       modelId: 'meta-llama/Meta-Llama-3-70B',
       precision: 'fp16' as Precision,
-      ctxIndex: 7,
+      ctxIndex: 0,
       search: '',
     };
+
     const queryModel = params.get('model');
     if (queryModel) {
       const found = (models as ModelInfo[]).find((m) => {
@@ -52,19 +59,30 @@ function App() {
         result.search = found.model_id.split('/').pop() ?? found.model_id;
       }
     }
+
+    const modelInfo = (models as ModelInfo[]).find((m) => m.model_id === result.modelId);
+    if (modelInfo?.ctx_len) {
+      result.ctxIndex = ctxIndexFor(modelInfo.ctx_len);
+    }
+
     const queryPrec = params.get('prec') as Precision | null;
     if (queryPrec && precisions.includes(queryPrec)) {
       result.precision = queryPrec;
     }
+
     const queryCtx = params.get('ctx');
     if (queryCtx) {
       const match = queryCtx.toLowerCase().match(/^(\d+)(k)?$/);
       if (match) {
         const val = parseInt(match[1], 10) * (match[2] ? 1024 : 1);
         const idx = ctxOptions.indexOf(val);
-        if (idx !== -1) result.ctxIndex = idx;
+        if (idx !== -1) {
+          const maxIdx = ctxIndexFor(modelInfo?.ctx_len ?? ctxOptions[ctxOptions.length - 1]);
+          result.ctxIndex = Math.min(idx, maxIdx);
+        }
       }
     }
+
     if (!result.search) {
       result.search = result.modelId.split('/').pop() ?? result.modelId;
     }
@@ -73,7 +91,7 @@ function App() {
 
   const [modelId, setModelId] = useState<string>(query.modelId);
   const [precision, setPrecision] = useState<Precision>(query.precision);
-  // default to 128k context length unless overridden by query string
+  // context length defaults to the model maximum unless overridden by query string
   const [ctxIndex, setCtxIndex] = useState<number>(query.ctxIndex);
   const [result, setResult] = useState<ReturnType<typeof estimateWithSku> | null>(null);
   const [loading, setLoading] = useState(false);
@@ -90,7 +108,28 @@ function App() {
     return (models as ModelInfo[]).find((m) => m.model_id === modelId)!;
   }, [modelId]);
 
-  const ctx = ctxOptions[ctxIndex];
+  const maxCtxIdx = useMemo(
+    () => ctxIndexFor(selectedModel.ctx_len ?? ctxOptions[ctxOptions.length - 1]),
+    [selectedModel]
+  );
+
+  const maxCtxPercent = useMemo(
+    () => (maxCtxIdx / (ctxOptions.length - 1)) * 100,
+    [maxCtxIdx]
+  );
+
+  const ctx = Math.min(
+    ctxOptions[ctxIndex],
+    selectedModel.ctx_len ?? ctxOptions[ctxIndex]
+  );
+
+  useEffect(() => {
+    setCtxIndex(maxCtxIdx);
+  }, [modelId, maxCtxIdx]);
+
+  useEffect(() => {
+    if (ctxIndex > maxCtxIdx) setCtxIndex(maxCtxIdx);
+  }, [maxCtxIdx, ctxIndex]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -298,19 +337,38 @@ function App() {
                 <label className="block mb-2 text-sm font-semibold text-gray-700">
                   Context Length: <span id="context-value" className="text-blue-600 font-bold">{formatCtx(ctx)}</span>
                 </label>
-                <input
-                  id="context-slider"
-                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none slider"
-                  type="range"
-                  min={0}
-                  max={ctxOptions.length - 1}
-                  step={1}
-                  value={ctxIndex}
-                  onChange={(e) => setCtxIndex(Number(e.target.value))}
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
-                  {ctxOptions.map((v) => (
-                    <span key={v}>{formatCtx(v)}</span>
+                <div className="relative">
+                  {selectedModel.ctx_len && maxCtxIdx < ctxOptions.length - 1 && (
+                    <div
+                      className="absolute -top-6 text-blue-600 text-xs font-semibold pointer-events-none transform -translate-x-1/2"
+                      style={{ left: `${maxCtxPercent}%` }}
+                    >
+                      <span className="leading-none">limit</span>
+                      <span className="block leading-none">▼</span>
+                    </div>
+                  )}
+                  <input
+                    id="context-slider"
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none slider"
+                    type="range"
+                    min={0}
+                    max={ctxOptions.length - 1}
+                    step={1}
+                    value={ctxIndex}
+                    onChange={(e) =>
+                      setCtxIndex(Math.min(Number(e.target.value), maxCtxIdx))
+                    }
+                  />
+                </div>
+                <div className="relative mt-2 text-xs text-gray-500 h-4">
+                  {ctxOptions.map((v, i) => (
+                    <span
+                      key={v}
+                      className="absolute -translate-x-1/2"
+                      style={{ left: `${(i / (ctxOptions.length - 1)) * 100}%` }}
+                    >
+                      {formatCtx(v)}
+                    </span>
                   ))}
                 </div>
               </div>

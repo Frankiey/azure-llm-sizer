@@ -25,17 +25,13 @@ const ctxOptions = [
   16384,
   32768,
   65536,
-  128000,
   131072,
-  200000,
   262144,
 ];
 
 const ctxIndexFor = (v: number): number => {
-  let idx = ctxOptions.findIndex((c) => c >= v);
-  if (idx === -1) idx = ctxOptions.length - 1;
-  if (ctxOptions[idx] > v && idx > 0) idx -= 1;
-  return idx;
+  const idx = ctxOptions.findIndex((c) => c >= v);
+  return idx === -1 ? ctxOptions.length - 1 : idx;
 };
 
 const MAX_MEM = 160; // for progress bar scaling
@@ -117,7 +113,10 @@ function App() {
     [selectedModel]
   );
 
-  const ctx = ctxOptions[ctxIndex];
+  const ctx = Math.min(
+    ctxOptions[ctxIndex],
+    selectedModel.ctx_len ?? ctxOptions[ctxIndex]
+  );
 
   useEffect(() => {
     setCtxIndex(maxCtxIdx);

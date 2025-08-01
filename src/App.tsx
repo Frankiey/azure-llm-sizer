@@ -343,8 +343,8 @@ function App() {
                       className="absolute -top-6 text-blue-600 text-xs font-semibold pointer-events-none transform -translate-x-1/2"
                       style={{ left: `${maxCtxPercent}%` }}
                     >
-                      <span className="block leading-none">▼</span>
                       <span className="leading-none">limit</span>
+                      <span className="block leading-none">▼</span>
                     </div>
                   )}
                   <input
@@ -360,9 +360,15 @@ function App() {
                     }
                   />
                 </div>
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
-                  {ctxOptions.map((v) => (
-                    <span key={v}>{formatCtx(v)}</span>
+                <div className="relative mt-2 text-xs text-gray-500 h-4">
+                  {ctxOptions.map((v, i) => (
+                    <span
+                      key={v}
+                      className="absolute -translate-x-1/2"
+                      style={{ left: `${(i / (ctxOptions.length - 1)) * 100}%` }}
+                    >
+                      {formatCtx(v)}
+                    </span>
                   ))}
                 </div>
               </div>

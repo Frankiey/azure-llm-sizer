@@ -16,7 +16,7 @@ interface ModelInfo {
 
 type SortOption = 'size_desc' | 'size_asc' | 'name';
 
-const precisions: Precision[] = ['fp16', 'fp32', 'int8', 'int4'];
+const precisions: Precision[] = ['fp16', 'bf16', 'fp32', 'int8', 'int4'];
 const ctxOptions = [
   1024,
   2048,

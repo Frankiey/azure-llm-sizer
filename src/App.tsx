@@ -334,13 +334,13 @@ function App() {
               </div>
 
               <div>
-                <label className="block mb-2 text-sm font-semibold text-gray-700">
+                <label className="block mb-8 text-sm font-semibold text-gray-700">
                   Context Length: <span id="context-value" className="text-blue-600 font-bold">{formatCtx(ctx)}</span>
                 </label>
                 <div className="relative">
                   {selectedModel.ctx_len && maxCtxIdx < ctxOptions.length - 1 && (
                     <div
-                      className="absolute -top-6 text-blue-600 text-xs font-semibold pointer-events-none transform -translate-x-1/2"
+                      className="absolute top-0 text-blue-600 text-xs font-semibold pointer-events-none transform -translate-x-1/2 -translate-y-full"
                       style={{ left: `${maxCtxPercent}%` }}
                     >
                       <span className="leading-none">limit</span>

@@ -269,6 +269,10 @@ function App() {
                   placeholder="Search for models..."
                   type="text"
                   value={search}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
                   onChange={(e) => {
                     setSearch(e.target.value);
                     setDropdownOpen(true);

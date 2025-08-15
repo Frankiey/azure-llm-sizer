@@ -206,7 +206,7 @@ function App() {
   useEffect(() => {
     calc();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modelId]);
+  }, [modelId, precision, ctx]);
 
   const handleCalc = () => {
     setLoading(true);

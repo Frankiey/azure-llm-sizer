@@ -13,6 +13,9 @@ import sys
 
 
 CATALOG = [
+    # EleutherAI GPT-NeoX
+    {"model_id": "EleutherAI/gpt-neox-20b", "params_b": 20, "layers": 44, "hidden": 6144, "moe_active_ratio": 0.0, "ctx_len": 2048},
+    
     # Deepseek R1
 
     {"model_id": "deepseek-ai/DeepSeek-R1", "params_b": 685.0, "layers": 61, "hidden": 7168,  "moe_active_ratio": 0.05} ,

@@ -1,2 +1,2 @@
-huggingface_hub
-pydantic
+huggingface_hub==1.2.4
+pydantic==2.12.5

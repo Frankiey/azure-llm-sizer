@@ -160,6 +160,7 @@ CATALOG = [
 
 
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "models.json"
+STAGING_FILE = Path(__file__).resolve().parent / "staging_candidates.json"
 
 class ModelRow(BaseModel):
     model_id: str
@@ -202,9 +203,39 @@ def derive_fields(entry: dict) -> ModelRow:
     return ModelRow(model_id=repo, params_b=params_b, layers=layers, hidden=hidden, moe_active_ratio=ratio)
 
 
+def load_candidate_catalog() -> list[dict]:
+    catalog_map = {entry["model_id"]: entry for entry in CATALOG}
+    entries: list[dict] = []
+    seen: set[str] = set()
+    if STAGING_FILE.exists():
+        try:
+            candidates = json.loads(STAGING_FILE.read_text())
+        except json.JSONDecodeError:
+            candidates = []
+        for candidate in candidates:
+            model_id = candidate.get("model_id")
+            if not model_id or model_id in seen:
+                continue
+            seen.add(model_id)
+            entry = {
+                "model_id": model_id,
+                "params_b": 0.0,
+                "layers": 0,
+                "hidden": 0,
+                "moe_active_ratio": 0.0,
+            }
+            entry.update(catalog_map.get(model_id, {}))
+            entries.append(entry)
+    for model_id, entry in catalog_map.items():
+        if model_id in seen:
+            continue
+        entries.append(entry)
+    return entries
+
+
 def main() -> None:
     rows = []
-    for entry in CATALOG:
+    for entry in load_candidate_catalog():
         row = derive_fields(entry)
         rows.append(row.model_dump())
     OUTPUT_FILE.write_text(json.dumps(rows, indent=2))

@@ -1,0 +1,1751 @@
+[
+  {
+    "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 11377379.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "endpoints_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "conversational",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "safetensors",
+      "en",
+      "es",
+      "base_model:meta-llama/Llama-3.1-8B",
+      "text-generation-inference",
+      "base_model:finetune:meta-llama/Llama-3.1-8B",
+      "license:llama3.1",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-3B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 8886750.0,
+    "tags": [
+      "hub-listing",
+      "base_model:finetune:Qwen/Qwen2.5-3B",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:other",
+      "base_model:Qwen/Qwen2.5-3B",
+      "qwen2",
+      "region:us",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-0.6B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 8057585.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "base_model:finetune:Qwen/Qwen3-0.6B-Base",
+      "base_model:Qwen/Qwen3-0.6B-Base",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "openai-community/gpt2",
+    "provider": "openai-community",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 6934227.0,
+    "tags": [
+      "jax",
+      "onnx",
+      "exbert",
+      "hub-listing",
+      "endpoints_compatible",
+      "text-generation",
+      "region:us",
+      "pytorch",
+      "deploy:azure",
+      "tflite",
+      "transformers",
+      "safetensors",
+      "en",
+      "license:mit",
+      "gpt2",
+      "text-generation-inference",
+      "tf",
+      "rust",
+      "doi:10.57967/hf/0039"
+    ]
+  },
+  {
+    "model_id": "openai/gpt-oss-20b",
+    "provider": "openai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 6619634.0,
+    "tags": [
+      "hub-listing",
+      "arxiv:2508.10925",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "mxfp4",
+      "8-bit",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "gpt_oss",
+      "deploy:azure",
+      "vllm"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 5866322.0,
+    "tags": [
+      "region:us",
+      "hub-listing",
+      "base_model:Qwen/Qwen2.5-1.5B",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "qwen2",
+      "license:apache-2.0",
+      "base_model:finetune:Qwen/Qwen2.5-1.5B",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 5701893.0,
+    "tags": [
+      "hub-listing",
+      "deploy:azure",
+      "arxiv:2309.00071",
+      "base_model:Qwen/Qwen2.5-7B",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "qwen2",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "conversational",
+      "base_model:finetune:Qwen/Qwen2.5-7B",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "dphn/dolphin-2.9.1-yi-1.5-34b",
+    "provider": "dphn",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 4199796.0,
+    "tags": [
+      "dataset:Locutusque/function-calling-chatml",
+      "dataset:microsoft/orca-math-word-problems-200k",
+      "hub-listing",
+      "endpoints_compatible",
+      "autotrain_compatible",
+      "text-generation",
+      "dataset:cognitivecomputations/Dolphin-2.9",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "dataset:m-a-p/CodeFeedback-Filtered-Instruction",
+      "dataset:internlm/Agent-FLAN",
+      "dataset:teknium/OpenHermes-2.5",
+      "base_model:finetune:01-ai/Yi-1.5-34B",
+      "transformers",
+      "safetensors",
+      "axolotl",
+      "dataset:cognitivecomputations/dolphin-coder",
+      "base_model:01-ai/Yi-1.5-34B",
+      "text-generation-inference",
+      "dataset:cognitivecomputations/samantha-data",
+      "generated_from_trainer",
+      "llama"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-8B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3865522.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "deploy:azure",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "base_model:Qwen/Qwen3-8B-Base",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "base_model:finetune:Qwen/Qwen3-8B-Base",
+      "arxiv:2309.00071"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-14B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3755561.0,
+    "tags": [
+      "region:us",
+      "hub-listing",
+      "arxiv:2309.00071",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "base_model:Qwen/Qwen2.5-14B",
+      "qwen2",
+      "license:apache-2.0",
+      "base_model:finetune:Qwen/Qwen2.5-14B",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3734392.0,
+    "tags": [
+      "qwen-coder",
+      "base_model:finetune:Qwen/Qwen2.5-Coder-0.5B",
+      "qwen2",
+      "arxiv:2409.12186",
+      "code",
+      "hub-listing",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "text-generation",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "deploy:azure",
+      "transformers",
+      "safetensors",
+      "en",
+      "text-generation-inference",
+      "codeqwen",
+      "base_model:Qwen/Qwen2.5-Coder-0.5B",
+      "qwen",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-4B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3696040.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "base_model:Qwen/Qwen3-4B-Base",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "base_model:finetune:Qwen/Qwen3-4B-Base",
+      "arxiv:2309.00071"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-1.7B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3507305.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "base_model:finetune:Qwen/Qwen3-1.7B-Base",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "base_model:Qwen/Qwen3-1.7B-Base"
+    ]
+  },
+  {
+    "model_id": "facebook/opt-125m",
+    "provider": "facebook",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3472936.0,
+    "tags": [
+      "jax",
+      "arxiv:2205.01068",
+      "hub-listing",
+      "opt",
+      "tf",
+      "arxiv:2005.14165",
+      "transformers",
+      "en",
+      "text-generation",
+      "license:other",
+      "region:us",
+      "text-generation-inference",
+      "pytorch",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "openai/gpt-oss-120b",
+    "provider": "openai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3448406.0,
+    "tags": [
+      "hub-listing",
+      "arxiv:2508.10925",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "mxfp4",
+      "8-bit",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "gpt_oss",
+      "deploy:azure",
+      "vllm"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-32B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 3136061.0,
+    "tags": [
+      "hub-listing",
+      "arxiv:2309.00071",
+      "base_model:Qwen/Qwen2.5-32B",
+      "arxiv:2407.10671",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "base_model:finetune:Qwen/Qwen2.5-32B",
+      "qwen2",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "vikhyatk/moondream2",
+    "provider": "vikhyatk",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2954864.0,
+    "tags": [
+      "custom_code",
+      "hub-listing",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "image-text-to-text",
+      "moondream1",
+      "license:apache-2.0",
+      "region:us",
+      "doi:10.57967/hf/6762"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2953003.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "arxiv:2404.06654",
+      "arxiv:2501.15383",
+      "endpoints_compatible",
+      "qwen3_next",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "deploy:azure",
+      "arxiv:2309.00071"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Llama-3.2-1B-Instruct",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2950871.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "arxiv:2405.16406",
+      "endpoints_compatible",
+      "autotrain_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "conversational",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "license:llama3.2",
+      "safetensors",
+      "en",
+      "es",
+      "text-generation-inference",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-Embedding-0.6B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2912282.0,
+    "tags": [
+      "hub-listing",
+      "sentence-similarity",
+      "arxiv:2506.05176",
+      "qwen3",
+      "endpoints_compatible",
+      "text-embeddings-inference",
+      "transformers",
+      "sentence-transformers",
+      "text-generation",
+      "safetensors",
+      "base_model:finetune:Qwen/Qwen3-0.6B-Base",
+      "base_model:Qwen/Qwen3-0.6B-Base",
+      "feature-extraction",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2779985.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2645825.0,
+    "tags": [
+      "hub-listing",
+      "qwen2",
+      "endpoints_compatible",
+      "arxiv:2501.12948",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "license:mit",
+      "conversational",
+      "region:us",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "distilbert/distilgpt2",
+    "provider": "distilbert",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2409381.0,
+    "tags": [
+      "jax",
+      "arxiv:1910.01108",
+      "arxiv:1910.09700",
+      "dataset:openwebtext",
+      "exbert",
+      "hub-listing",
+      "arxiv:2203.12574",
+      "endpoints_compatible",
+      "text-generation",
+      "license:apache-2.0",
+      "region:us",
+      "pytorch",
+      "deploy:azure",
+      "arxiv:1503.02531",
+      "arxiv:2201.08542",
+      "tflite",
+      "co2_eq_emissions",
+      "transformers",
+      "coreml",
+      "safetensors",
+      "en",
+      "gpt2",
+      "text-generation-inference",
+      "tf",
+      "rust",
+      "model-index"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Llama-3.1-8B",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2371094.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "endpoints_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "safetensors",
+      "en",
+      "es",
+      "text-generation-inference",
+      "license:llama3.1",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.2",
+    "provider": "mistralai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2357761.0,
+    "tags": [
+      "hub-listing",
+      "arxiv:2310.06825",
+      "mistral-common",
+      "transformers",
+      "mistral",
+      "safetensors",
+      "text-generation",
+      "finetuned",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "pytorch",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "google/gemma-3-1b-it",
+    "provider": "google",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2339246.0,
+    "tags": [
+      "arxiv:2106.03193",
+      "arxiv:2210.03057",
+      "base_model:finetune:google/gemma-3-1b-pt",
+      "arxiv:1904.09728",
+      "arxiv:2110.14168",
+      "arxiv:1905.07830",
+      "hub-listing",
+      "arxiv:1810.12440",
+      "arxiv:1905.10044",
+      "endpoints_compatible",
+      "arxiv:2502.12404",
+      "autotrain_compatible",
+      "arxiv:2502.21228",
+      "text-generation",
+      "arxiv:2304.06364",
+      "arxiv:1910.11856",
+      "arxiv:2009.03300",
+      "conversational",
+      "region:us",
+      "arxiv:2103.03874",
+      "arxiv:1911.11641",
+      "arxiv:2107.03374",
+      "arxiv:2104.12756",
+      "arxiv:1911.01547",
+      "gemma3_text",
+      "transformers",
+      "safetensors",
+      "license:gemma",
+      "arxiv:2404.16816",
+      "text-generation-inference",
+      "arxiv:2203.10244",
+      "arxiv:2311.16502",
+      "arxiv:1908.02660",
+      "arxiv:1907.10641",
+      "arxiv:2312.11805",
+      "arxiv:1903.00161",
+      "arxiv:1705.03551",
+      "arxiv:2404.12390",
+      "arxiv:2108.07732",
+      "base_model:google/gemma-3-1b-pt",
+      "arxiv:2311.12022"
+    ]
+  },
+  {
+    "model_id": "trl-internal-testing/tiny-Qwen2ForCausalLM-2.5",
+    "provider": "trl-internal-testing",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 2007513.0,
+    "tags": [
+      "trl",
+      "hub-listing",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "qwen2",
+      "region:us",
+      "text-generation-inference",
+      "conversational"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Meta-Llama-3-8B",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1963409.0,
+    "tags": [
+      "facebook",
+      "hub-listing",
+      "endpoints_compatible",
+      "llama",
+      "transformers",
+      "meta",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:llama3",
+      "llama-3",
+      "region:us",
+      "text-generation-inference",
+      "pytorch"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1923373.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "arxiv:2405.16406",
+      "endpoints_compatible",
+      "autotrain_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "conversational",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "license:llama3.2",
+      "safetensors",
+      "en",
+      "es",
+      "text-generation-inference",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1845070.0,
+    "tags": [
+      "hub-listing",
+      "base_model:Qwen/Qwen2.5-0.5B",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "base_model:finetune:Qwen/Qwen2.5-0.5B",
+      "safetensors",
+      "text-generation",
+      "en",
+      "qwen2",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Llama-3.2-1B",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1680138.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "arxiv:2405.16406",
+      "endpoints_compatible",
+      "autotrain_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "license:llama3.2",
+      "safetensors",
+      "en",
+      "es",
+      "text-generation-inference",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1665337.0,
+    "tags": [
+      "hub-listing",
+      "qwen2",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "microsoft/Phi-3-mini-4k-instruct",
+    "provider": "microsoft",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1626621.0,
+    "tags": [
+      "code",
+      "custom_code",
+      "hub-listing",
+      "fr",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:mit",
+      "phi3",
+      "conversational",
+      "region:us",
+      "nlp",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "openai-community/gpt2-large",
+    "provider": "openai-community",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1611185.0,
+    "tags": [
+      "jax",
+      "hub-listing",
+      "tf",
+      "rust",
+      "endpoints_compatible",
+      "transformers",
+      "arxiv:1910.09700",
+      "onnx",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:mit",
+      "gpt2",
+      "text-generation-inference",
+      "pytorch",
+      "deploy:azure",
+      "region:us"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1539612.0,
+    "tags": [
+      "facebook",
+      "hub-listing",
+      "endpoints_compatible",
+      "llama",
+      "transformers",
+      "meta",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:llama3",
+      "llama-3",
+      "conversational",
+      "region:us",
+      "text-generation-inference",
+      "pytorch",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "provider": "TinyLlama",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1396076.0,
+    "tags": [
+      "hub-listing",
+      "endpoints_compatible",
+      "llama",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "dataset:HuggingFaceH4/ultrachat_200k",
+      "dataset:bigcode/starcoderdata",
+      "dataset:cerebras/SlimPajama-627B",
+      "conversational",
+      "dataset:HuggingFaceH4/ultrafeedback_binarized",
+      "region:us",
+      "license:apache-2.0",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1369667.0,
+    "tags": [
+      "hub-listing",
+      "qwen2",
+      "endpoints_compatible",
+      "arxiv:2501.12948",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "license:mit",
+      "conversational",
+      "region:us",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "context-labs/meta-llama-Llama-3.2-3B-Instruct-FP16",
+    "provider": "context-labs",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1297926.0,
+    "tags": [
+      "pt",
+      "de",
+      "it",
+      "llama-3",
+      "th",
+      "hub-listing",
+      "arxiv:2405.16406",
+      "endpoints_compatible",
+      "text-generation",
+      "arxiv:2204.05149",
+      "conversational",
+      "region:us",
+      "pytorch",
+      "facebook",
+      "transformers",
+      "license:llama3.2",
+      "safetensors",
+      "en",
+      "es",
+      "text-generation-inference",
+      "fr",
+      "llama",
+      "meta",
+      "hi"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1175267.0,
+    "tags": [
+      "hub-listing",
+      "qwen2",
+      "endpoints_compatible",
+      "arxiv:2501.12948",
+      "transformers",
+      "autotrain_compatible",
+      "safetensors",
+      "text-generation",
+      "license:mit",
+      "conversational",
+      "region:us",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2-1.5B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1171791.0,
+    "tags": [
+      "hub-listing",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "qwen2",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "conversational",
+      "deploy:azure",
+      "chat"
+    ]
+  },
+  {
+    "model_id": "microsoft/phi-2",
+    "provider": "microsoft",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1166249.0,
+    "tags": [
+      "code",
+      "hub-listing",
+      "phi",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "license:mit",
+      "region:us",
+      "nlp",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "petals-team/StableBeluga2",
+    "provider": "petals-team",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1050241.0,
+    "tags": [
+      "hub-listing",
+      "arxiv:2307.09288",
+      "dataset:conceptofmind/niv2_submix_original",
+      "endpoints_compatible",
+      "arxiv:2306.02707",
+      "llama",
+      "transformers",
+      "dataset:conceptofmind/t0_submix_original",
+      "safetensors",
+      "text-generation",
+      "en",
+      "dataset:conceptofmind/cot_submix_original",
+      "region:us",
+      "dataset:conceptofmind/flan2021_submix_original",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-Embedding-8B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 1028081.0,
+    "tags": [
+      "hub-listing",
+      "sentence-similarity",
+      "deploy:azure",
+      "arxiv:2506.05176",
+      "qwen3",
+      "endpoints_compatible",
+      "text-embeddings-inference",
+      "transformers",
+      "sentence-transformers",
+      "text-generation",
+      "safetensors",
+      "base_model:Qwen/Qwen3-8B-Base",
+      "feature-extraction",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "base_model:finetune:Qwen/Qwen3-8B-Base"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-32B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 952042.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "arxiv:2309.00071"
+    ]
+  },
+  {
+    "model_id": "hmellor/tiny-random-LlamaForCausalLM",
+    "provider": "hmellor",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 860374.0,
+    "tags": [
+      "hub-listing",
+      "endpoints_compatible",
+      "llama",
+      "transformers",
+      "arxiv:1910.09700",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "region:us",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "tencent/HunyuanOCR",
+    "provider": "tencent",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 858995.0,
+    "tags": [
+      "1B",
+      "vision-language",
+      "ocr",
+      "base_model:tencent/HunyuanOCR",
+      "hub-listing",
+      "endpoints_compatible",
+      "text-generation",
+      "conversational",
+      "region:us",
+      "license:other",
+      "hunyuan_vl",
+      "transformers",
+      "safetensors",
+      "image-text-to-text",
+      "base_model:finetune:tencent/HunyuanOCR",
+      "arxiv:2511.19575",
+      "multilingual",
+      "end-to-end",
+      "image-to-text",
+      "hunyuan"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-7B",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 810113.0,
+    "tags": [
+      "hub-listing",
+      "qwen2",
+      "endpoints_compatible",
+      "arxiv:2407.10671",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "en",
+      "conversational",
+      "license:apache-2.0",
+      "region:us",
+      "text-generation-inference",
+      "deploy:azure"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 806249.0,
+    "tags": [
+      "deepseek_v3",
+      "custom_code",
+      "hub-listing",
+      "endpoints_compatible",
+      "fp8",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "arxiv:2412.19437",
+      "conversational",
+      "region:us",
+      "text-generation-inference"
+    ]
+  },
+  {
+    "model_id": "kaitchup/Phi-3-mini-4k-instruct-gptq-4bit",
+    "provider": "kaitchup",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 796576.0,
+    "tags": [
+      "custom_code",
+      "hub-listing",
+      "endpoints_compatible",
+      "transformers",
+      "arxiv:1910.09700",
+      "safetensors",
+      "text-generation",
+      "phi3",
+      "conversational",
+      "4-bit",
+      "region:us",
+      "text-generation-inference",
+      "gptq"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-32B-FP8",
+    "provider": "Qwen",
+    "license": null,
+    "source": "huggingface_hub",
+    "popularity_score": 788575.0,
+    "tags": [
+      "arxiv:2505.09388",
+      "hub-listing",
+      "qwen3",
+      "endpoints_compatible",
+      "base_model:quantized:Qwen/Qwen3-32B",
+      "fp8",
+      "transformers",
+      "safetensors",
+      "text-generation",
+      "conversational",
+      "base_model:Qwen/Qwen3-32B",
+      "region:us",
+      "license:apache-2.0",
+      "text-generation-inference",
+      "arxiv:2309.00071"
+    ]
+  },
+  {
+    "model_id": "meta-llama/Llama-3.1-70B-Instruct",
+    "provider": "meta-llama",
+    "license": null,
+    "source": "community_rankings",
+    "popularity_score": 98.0,
+    "tags": [
+      "community-ranking"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-72B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "community_rankings",
+    "popularity_score": 96.5,
+    "tags": [
+      "community-ranking"
+    ]
+  },
+  {
+    "model_id": "mistralai/Mistral-Large-Instruct-2411",
+    "provider": "mistralai",
+    "license": null,
+    "source": "community_rankings",
+    "popularity_score": 95.0,
+    "tags": [
+      "community-ranking"
+    ]
+  },
+  {
+    "model_id": "google/gemma-2-27b-it",
+    "provider": "google",
+    "license": null,
+    "source": "community_rankings",
+    "popularity_score": 92.0,
+    "tags": [
+      "community-ranking"
+    ]
+  },
+  {
+    "model_id": "microsoft/phi-4",
+    "provider": "microsoft",
+    "license": null,
+    "source": "community_rankings",
+    "popularity_score": 90.0,
+    "tags": [
+      "community-ranking"
+    ]
+  },
+  {
+    "model_id": "EssentialAI/rnj-1-instruct",
+    "provider": "EssentialAI",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "LiquidAI/LFM2-2.6B",
+    "provider": "LiquidAI",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "LiquidAI/LFM2-8B-A1B",
+    "provider": "LiquidAI",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "MiniMaxAI/MiniMax-M2",
+    "provider": "MiniMaxAI",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "MiniMaxAI/MiniMax-M2.1",
+    "provider": "MiniMaxAI",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "PrimeIntellect/INTELLECT-3-FP8",
+    "provider": "PrimeIntellect",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+    "provider": "Qwen",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-VL-32B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "provider": "Qwen",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "Qwen/Qwen3-VL-8B-Thinking",
+    "provider": "Qwen",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "XiaomiMiMo/MiMo-V2-Flash",
+    "provider": "XiaomiMiMo",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "allenai/Olmo-3-32B-Think",
+    "provider": "allenai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "allenai/Olmo-3-7B-Instruct",
+    "provider": "allenai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "allenai/Olmo-3-7B-Think",
+    "provider": "allenai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "allenai/Olmo-3.1-32B-Think",
+    "provider": "allenai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "arcee-ai/Trinity-Mini",
+    "provider": "arcee-ai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "baidu/ERNIE-4.5-21B-A3B-Thinking",
+    "provider": "baidu",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "deepcogito/cogito-v2-preview-llama-405B",
+    "provider": "deepcogito",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3.2",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3.2-Exp",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "deepseek-ai/DeepSeek-V3.2-Speciale",
+    "provider": "deepseek-ai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "ibm-granite/granite-4.0-h-micro",
+    "provider": "ibm-granite",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "mistralai/Devstral-2-123B-Instruct-2512",
+    "provider": "mistralai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "mistralai/Ministral-3-14B-Instruct-2512",
+    "provider": "mistralai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "mistralai/Ministral-3-3B-Instruct-2512",
+    "provider": "mistralai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "mistralai/Ministral-3-8B-Instruct-2512",
+    "provider": "mistralai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "mistralai/Voxtral-Small-24B-2507",
+    "provider": "mistralai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "audio",
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "moonshotai/Kimi-K2-Thinking",
+    "provider": "moonshotai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "nex-agi/DeepSeek-V3.1-Nex-N1",
+    "provider": "nex-agi",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "nvidia/Llama-3_3-Nemotron-Super-49B-v1_5",
+    "provider": "nvidia",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "provider": "nvidia",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16",
+    "provider": "nvidia",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "image",
+      "text",
+      "vendor-index",
+      "video"
+    ]
+  },
+  {
+    "model_id": "openai/gpt-oss-safeguard-20b",
+    "provider": "openai",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "thedrummer/cydonia-24b-v4.1",
+    "provider": "thedrummer",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  },
+  {
+    "model_id": "zai-org/GLM-4.6V",
+    "provider": "zai-org",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "video",
+      "text",
+      "vendor-index",
+      "image"
+    ]
+  },
+  {
+    "model_id": "zai-org/GLM-4.7",
+    "provider": "zai-org",
+    "license": null,
+    "source": "openrouter_index",
+    "popularity_score": 0.0,
+    "tags": [
+      "text",
+      "vendor-index"
+    ]
+  }
+]
